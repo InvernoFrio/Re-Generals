@@ -1,0 +1,38 @@
+[
+{
+  "directory": "E:/Projects/re-generals/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/Re-Generals.dir/includes_CXX.rsp -g -o CMakeFiles\\Re-Generals.dir\\src\\controller.cpp.obj -c E:\\Projects\\re-generals\\src\\controller.cpp",
+  "file": "E:/Projects/re-generals/src/controller.cpp",
+  "output": "CMakeFiles/Re-Generals.dir/src/controller.cpp.obj"
+},
+{
+  "directory": "E:/Projects/re-generals/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/Re-Generals.dir/includes_CXX.rsp -g -o CMakeFiles\\Re-Generals.dir\\src\\game.cpp.obj -c E:\\Projects\\re-generals\\src\\game.cpp",
+  "file": "E:/Projects/re-generals/src/game.cpp",
+  "output": "CMakeFiles/Re-Generals.dir/src/game.cpp.obj"
+},
+{
+  "directory": "E:/Projects/re-generals/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/Re-Generals.dir/includes_CXX.rsp -g -o CMakeFiles\\Re-Generals.dir\\src\\main.cpp.obj -c E:\\Projects\\re-generals\\src\\main.cpp",
+  "file": "E:/Projects/re-generals/src/main.cpp",
+  "output": "CMakeFiles/Re-Generals.dir/src/main.cpp.obj"
+},
+{
+  "directory": "E:/Projects/re-generals/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/Re-Generals.dir/includes_CXX.rsp -g -o CMakeFiles\\Re-Generals.dir\\src\\map.cpp.obj -c E:\\Projects\\re-generals\\src\\map.cpp",
+  "file": "E:/Projects/re-generals/src/map.cpp",
+  "output": "CMakeFiles/Re-Generals.dir/src/map.cpp.obj"
+},
+{
+  "directory": "E:/Projects/re-generals/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/Re-Generals.dir/includes_CXX.rsp -g -o CMakeFiles\\Re-Generals.dir\\src\\square.cpp.obj -c E:\\Projects\\re-generals\\src\\square.cpp",
+  "file": "E:/Projects/re-generals/src/square.cpp",
+  "output": "CMakeFiles/Re-Generals.dir/src/square.cpp.obj"
+},
+{
+  "directory": "E:/Projects/re-generals/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/Re-Generals.dir/includes_CXX.rsp -g -o CMakeFiles\\Re-Generals.dir\\src\\texturepool.cpp.obj -c E:\\Projects\\re-generals\\src\\texturepool.cpp",
+  "file": "E:/Projects/re-generals/src/texturepool.cpp",
+  "output": "CMakeFiles/Re-Generals.dir/src/texturepool.cpp.obj"
+}
+]

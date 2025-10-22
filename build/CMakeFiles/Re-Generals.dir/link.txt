@@ -1,0 +1,3 @@
+C:\CMake\bin\cmake.exe -E rm -f CMakeFiles\Re-Generals.dir/objects.a
+C:\MinGW\bin\ar.exe qc CMakeFiles\Re-Generals.dir/objects.a @CMakeFiles\Re-Generals.dir\objects1.rsp
+C:\MinGW\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\Re-Generals.dir/objects.a -Wl,--no-whole-archive -o E:\Projects\re-generals\bin\Re-Generals.exe -Wl,--out-implib,libRe-Generals.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Re-Generals.dir\linkLibs.rsp
