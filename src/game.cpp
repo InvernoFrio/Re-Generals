@@ -22,8 +22,8 @@ void Game::render() {
 
     //绘制游戏内容
     BeginMode2D(main_contoller.getCamera());
-    ClearBackground(DARKGRAY);
-    DrawRectangle(40, 40, 100, 100, WHITE);
+    ClearBackground(BACKGUROND_COLOR);
+    DrawRectangle(40, 40, 100, 100, GREEN);
     map.drawMap();
     EndMode2D();
 

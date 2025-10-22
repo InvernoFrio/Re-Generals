@@ -15,6 +15,7 @@ constexpr int DEFAULT_PLAYER_NUMBER = 8;
 constexpr int DEFAULT_MAP_WIDTH = 100;
 constexpr int DEFAULT_MAP_HEIGHT = 100;
 
-// constexpr int 
+const Color BACKGUROND_COLOR = Color{ 34,34,34,255 };
+
 
 #endif
