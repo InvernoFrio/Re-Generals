@@ -2,13 +2,16 @@
 #include"raylib/raymath.h"
 #include"game.h"
 void Game::init() {
+    //init window
     InitWindow(DEFAULT_SCREEN_WIDTH, DEFAULT_SCREEN_HEIGHT, PROJECT_NAME);
     SetWindowState(FLAG_WINDOW_RESIZABLE);
     SetTargetFPS(DEFAULT_FPS);
 
+    //init texture_pool
+    textures_pool.init();
+
     is_running = true;
-    map_width = DEFAULT_MAP_WIDTH;
-    map_height = DEFAULT_MAP_HEIGHT;
+    //init controller
     controller_pool.push_back(Controller());
     setPlayerNumber(DEFAULT_PLAYER_NUMBER);
     setMainController(controller_pool[0]);
@@ -23,8 +26,8 @@ void Game::render() {
     //绘制游戏内容
     BeginMode2D(main_contoller.getCamera());
     ClearBackground(BACKGUROND_COLOR);
-    DrawRectangle(40, 40, 100, 100, GREEN);
-    map.drawMap();
+    DrawTexture(textures_pool.get(GENERAL), 0, 0, WHITE);
+    map.drawMap(main_contoller);
     EndMode2D();
 
     //绘制UI内容
@@ -41,6 +44,7 @@ void Game::run() {
     cleanup();
 }
 void Game::cleanup() {
+    textures_pool.unloadAll();
     CloseWindow();
 }
 void Game::setMainController(Controller& controller) {

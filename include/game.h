@@ -10,14 +10,13 @@
 class Game {
 private:
     int player_number;
-    int map_height, map_width;
     bool is_running;
 
     Map map;
     std::vector<Controller>controller_pool;
     Controller main_contoller;
 
-    TexturePool texture_pool;
+    TexturePool textures_pool;
 
 public:
     void init();
