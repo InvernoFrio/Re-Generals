@@ -3,6 +3,7 @@
 
 #include"raylib/raylib.h"
 #include"raylib/raymath.h"
+#include<stack>
 class Controller {
 private:
     int id;
@@ -12,6 +13,8 @@ private:
     Vector2 camera_last_pos;
     Color color;
     Camera2D camera;
+
+
 public:
     Controller();
     Controller(int id, Color color);

@@ -6,9 +6,11 @@
 #include"controller.h"
 #include"texturepool.h"
 #include"constants.h"
+#include<time.h>
 #include<vector>
 class Game {
 private:
+    bool color_selected[MAX_PLAYER_NUMBER];
     int player_number;
     bool is_running;
 
@@ -24,6 +26,18 @@ public:
     void cleanup();
     void setSpectator(Controller& controller);
     void setPlayerNumber(int player_number);
-    Color selectColor();
+    void updateEconomy();
+
+    //map
+    void initMap();
+    void generateObstacles();
+    void generateMountains();
+    void generateCities();
+    void generateGeneral();
+    void refreshMap();
+    bool checkConnectivity();
+    void clearMap();
+
+    Color selectColor(int id);
 };
 #endif

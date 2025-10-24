@@ -21,9 +21,8 @@ public:
     void setY(int y);
     void setSolderNum(int solder_num);
     void setSpawnSpeed(int spawn_speed);
-    void setSquareType(int type);
+    void setType(int type);
     void setColor(Color color);
     void setId(int id);
-    void updateSquare();
 };
 #endif

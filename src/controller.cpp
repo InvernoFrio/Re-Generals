@@ -29,6 +29,7 @@ void Controller::initCamera() {
 }
 void Controller::update() {
     updateCamera();
+
 }
 void Controller::updateCamera() {
     if (last_screen_height != GetScreenHeight() || last_screen_width != GetScreenWidth()) {
@@ -42,7 +43,7 @@ void Controller::handlerCameraInput() {
     if (wheel != 0) {
         Vector2 mouseWorldPosBefore = GetScreenToWorld2D(GetMousePosition(), camera);
         camera.zoom += wheel * 0.1f;
-        camera.zoom = Clamp(camera.zoom, 0.5f, 5.0f);
+        camera.zoom = Clamp(camera.zoom, 0.5f, 3.0f);
         Vector2 mouseWorldPosAfter = GetScreenToWorld2D(GetMousePosition(), camera);
 
         camera.target.x -= (mouseWorldPosAfter.x - mouseWorldPosBefore.x);

@@ -140,6 +140,12 @@ CMakeFiles/Re-Generals.dir/src/map.cpp.obj: \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/tr1/poly_hermite.tcc \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/tr1/poly_laguerre.tcc \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/tr1/riemann_zeta.tcc \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/stack \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/deque \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_uninitialized.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_deque.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/deque.tcc \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_stack.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/algorithm \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_algo.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/algorithmfwd.h \
@@ -177,13 +183,14 @@ CMakeFiles/Re-Generals.dir/src/map.cpp.obj: \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/ostream.tcc \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/istream \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/istream.tcc \
+ C:/MinGW/x86_64-w64-mingw32/include/string.h \
+ C:/MinGW/x86_64-w64-mingw32/include/sec_api/string_s.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/random \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/cstdint \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
  C:/MinGW/x86_64-w64-mingw32/include/stdint.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/random.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/vector \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_uninitialized.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_vector.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_bvector.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/vector.tcc \

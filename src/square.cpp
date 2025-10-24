@@ -11,9 +11,6 @@ int Square::getType() { return this->type; }
 void Square::setX(int x) { this->x = x; }
 void Square::setY(int y) { this->y = y; }
 void Square::setSpawnSpeed(int spawn_speed) { this->spawn_speed = spawn_speed; }
-void Square::setSquareType(int type) { this->type = type; }
+void Square::setType(int type) { this->type = type; }
 void Square::setSolderNum(int solder_num) { this->solder_num = solder_num; }
 void Square::setId(int id) { this->id = id; }
-void Square::updateSquare() {
-
-}
