@@ -13,10 +13,8 @@ private:
     bool is_running;
 
     Map map;
+    Controller spectator;
     std::vector<Controller>controller_pool;
-    Controller main_contoller;
-
-    TexturePool textures_pool;
 
 public:
     void init();
@@ -24,7 +22,7 @@ public:
     void render();
     void run();
     void cleanup();
-    void setMainController(Controller& controller);
+    void setSpectator(Controller& controller);
     void setPlayerNumber(int player_number);
     Color selectColor();
 };

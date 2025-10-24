@@ -1,6 +1,8 @@
 #ifndef _CONSTANTS_H_
 #define _CONSTANTS_H_
 
+constexpr int INF = 0x3f3f3f3f;
+
 constexpr char PROJECT_NAME[] = "Re-Generals";
 
 constexpr int TEXTURE_NUMBER = 8;
@@ -31,8 +33,8 @@ constexpr char* TEXTURE_PATH[] = {
     "./assets/obstacle.png",
     "./assets/arrowup.png",
     "./assets/arrowdown.png",
-    "./assets/arrowleft",
-    "./assets/arrowright"
+    "./assets/arrowleft.png",
+    "./assets/arrowright.png"
 };
 
 constexpr int MAX_PLAYER_NUMBER = 12;
@@ -45,23 +47,24 @@ constexpr int DEFAULT_SCREEN_WIDTH = 800;
 constexpr int DEFAULT_SCREEN_HEIGHT = 600;
 constexpr int DEFAULT_FPS = 60;
 constexpr int DEFAULT_PLAYER_NUMBER = 8;
-constexpr int DEFAULT_MAP_WIDTH = 30;
-constexpr int DEFAULT_MAP_HEIGHT = 30;
+constexpr int DEFAULT_MAP_WIDTH = 20;
+constexpr int DEFAULT_MAP_HEIGHT = 20;
 
-constexpr int OBSTACLE_NUMBER = 15;
+constexpr int MOUNTAIN_NUMBER = 20;
+constexpr int CITY_NUMBER = 20;
 
-const Color BACKGUROND_COLOR = Color{ 34,34,34,255 };
+constexpr int SPECTATOR = 0;
+
+constexpr Color BACKGUROND_COLOR = Color{ 34,34,34,255 };
+constexpr Color DEFAULT_COLOR = Color{ 220,220,220,255 };
+
 enum SquareType {
-    SQUARE_TYPE_LAND,
-    SQUARE_TYPE_GENERAL,
-    SQUARE_TYPE_CITY,
-    SQUARE_TYPE_MOUNTAIN,
+    TYPE_GENERAL,
+    TYPE_CITY,
+    TYPE_MOUNTAIN,
+    TYPE_LAND,
 };
-enum RenderType {
-    RENDER_TYPE_LAND,
-    RENDER_TYPE_FOG,
-    RENDER_TYPE_FOG_OBSTACLE
-};
+
 
 
 

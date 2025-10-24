@@ -7,27 +7,26 @@ void Game::init() {
     SetWindowState(FLAG_WINDOW_RESIZABLE);
     SetTargetFPS(DEFAULT_FPS);
 
-    //init texture_pool
-    textures_pool.init();
+    //init map
+    map.init();
 
     is_running = true;
     //init controller
-    controller_pool.push_back(Controller());
+    controller_pool.push_back(Controller(SPECTATOR, WHITE));
     setPlayerNumber(DEFAULT_PLAYER_NUMBER);
-    setMainController(controller_pool[0]);
+    setSpectator(controller_pool[SPECTATOR]);
 
 }
 void Game::update() {
-    main_contoller.update();
+    spectator.update();
 }
 void Game::render() {
     BeginDrawing();
 
     //绘制游戏内容
-    BeginMode2D(main_contoller.getCamera());
+    BeginMode2D(spectator.getCamera());
     ClearBackground(BACKGUROND_COLOR);
-    DrawTexture(textures_pool.get(GENERAL), 0, 0, WHITE);
-    map.drawMap(main_contoller);
+    map.drawMap(spectator);
     EndMode2D();
 
     //绘制UI内容
@@ -44,11 +43,11 @@ void Game::run() {
     cleanup();
 }
 void Game::cleanup() {
-    textures_pool.unloadAll();
+    map.textures_pool.unloadAll();
     CloseWindow();
 }
-void Game::setMainController(Controller& controller) {
-    this->main_contoller = controller;
+void Game::setSpectator(Controller& controller) {
+    this->spectator = controller;
 }
 void Game::setPlayerNumber(int player_number) {
     this->player_number = player_number;

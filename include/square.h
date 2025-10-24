@@ -4,21 +4,26 @@
 #define _SQUARE_H_
 class Square {
     int x, y;
-    int num_solders, speed_spawn;
+    int solder_num, spawn_speed;
     int type;
-    int home_id;
+    int id;
     Color color;
 
 public:
-    Square();
     int getX();
     int getY();
     int getNumSolders();
     int getSpeedSpawn();
+    int getId();
+    Color getColor();
+    int getType();
     void setX(int x);
     void setY(int y);
-    void setSpeedSpawn(int speed_spawn);
+    void setSolderNum(int solder_num);
+    void setSpawnSpeed(int spawn_speed);
     void setSquareType(int type);
+    void setColor(Color color);
+    void setId(int id);
     void updateSquare();
 };
 #endif
