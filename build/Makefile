@@ -128,6 +128,30 @@ Re-Generals/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/build
 .PHONY : Re-Generals/fast
 
+src/bot.obj: src/bot.cpp.obj
+.PHONY : src/bot.obj
+
+# target to build an object file
+src/bot.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/bot.cpp.obj
+.PHONY : src/bot.cpp.obj
+
+src/bot.i: src/bot.cpp.i
+.PHONY : src/bot.i
+
+# target to preprocess a source file
+src/bot.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/bot.cpp.i
+.PHONY : src/bot.cpp.i
+
+src/bot.s: src/bot.cpp.s
+.PHONY : src/bot.s
+
+# target to generate assembly for a file
+src/bot.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/bot.cpp.s
+.PHONY : src/bot.cpp.s
+
 src/controller.obj: src/controller.cpp.obj
 .PHONY : src/controller.obj
 
@@ -224,6 +248,30 @@ src/map.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/map.cpp.s
 .PHONY : src/map.cpp.s
 
+src/player.obj: src/player.cpp.obj
+.PHONY : src/player.obj
+
+# target to build an object file
+src/player.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/player.cpp.obj
+.PHONY : src/player.cpp.obj
+
+src/player.i: src/player.cpp.i
+.PHONY : src/player.i
+
+# target to preprocess a source file
+src/player.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/player.cpp.i
+.PHONY : src/player.cpp.i
+
+src/player.s: src/player.cpp.s
+.PHONY : src/player.s
+
+# target to generate assembly for a file
+src/player.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/player.cpp.s
+.PHONY : src/player.cpp.s
+
 src/square.obj: src/square.cpp.obj
 .PHONY : src/square.obj
 
@@ -281,6 +329,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Re-Generals
+	@echo ... src/bot.obj
+	@echo ... src/bot.i
+	@echo ... src/bot.s
 	@echo ... src/controller.obj
 	@echo ... src/controller.i
 	@echo ... src/controller.s
@@ -293,6 +344,9 @@ help:
 	@echo ... src/map.obj
 	@echo ... src/map.i
 	@echo ... src/map.s
+	@echo ... src/player.obj
+	@echo ... src/player.i
+	@echo ... src/player.s
 	@echo ... src/square.obj
 	@echo ... src/square.i
 	@echo ... src/square.s

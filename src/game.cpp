@@ -11,9 +11,9 @@ void Game::init() {
     initMap();
 }
 void Game::initController() {
-    controller_pool.push_back(Controller(SPECTATOR, WHITE));
+
+    controller_pool.push_back(std::make_unique<Controller>(SPECTATOR, WHITE));
     setPlayerNumber(DEFAULT_PLAYER_NUMBER);
-    setSpectator(controller_pool[SPECTATOR]);
 }
 void Game::initMap() {
     map.init();
@@ -24,7 +24,8 @@ void Game::initMap() {
     refreshMap();
 }
 void Game::update() {
-    spectator.update();
+    updateSpectator();
+    updateController();
 }
 void Game::render() {
     BeginDrawing();
@@ -52,7 +53,19 @@ void Game::cleanup() {
     map.textures_pool.unloadAll();
     CloseWindow();
 }
-void Game::setSpectator(Controller& controller) {
+void Game::updateController() {
+    for (auto& controller : controller_pool) {
+        controller->update();
+    }
+}
+void Game::updateSpectator() {
+    spectator.updateCamera();
+    updateKBInput();
+}
+void Game::updateKBInput() {
+
+}
+void Game::setSpectator(Controller controller) {
     this->spectator = controller;
 }
 void Game::setPlayerNumber(int player_number) {
@@ -62,7 +75,7 @@ void Game::setPlayerNumber(int player_number) {
         for (int i = 1;i <= controller_pool.size() - player_number;i++)controller_pool.pop_back();
     }
     else if (controller_pool.size() - 1 < player_number) {
-        for (int i = controller_pool.size();i <= player_number;i++)controller_pool.push_back(Controller(i, selectColor(i)));
+        for (int i = controller_pool.size();i <= player_number;i++)controller_pool.push_back(std::make_unique<Controller>(i, selectColor(i)));
     }
 }
 Color Game::selectColor(int id) {
@@ -119,7 +132,7 @@ void Game::generateGeneral() {
         } while (map.map[x][y].getType() != TYPE_LAND);
         Square& now = map.map[x][y];
         now.setType(TYPE_GENERAL);
-        now.setColor(controller_pool[i].getColor());
+        now.setColor(controller_pool[i]->getColor());
         now.setId(i);
         now.setSolderNum(1);
         now.setSpawnSpeed(2);

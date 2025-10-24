@@ -1,8 +1,10 @@
 #ifndef _GAME_H_
 #define _GAME_H_
 #include"raylib/raylib.h"
+#include"bits/unique_ptr.h"
 #include"raylib/raymath.h"
 #include"map.h"
+#include"player.h"
 #include"controller.h"
 #include"texturepool.h"
 #include"constants.h"
@@ -16,7 +18,7 @@ private:
 
     Map map;
     Controller spectator;
-    std::vector<Controller>controller_pool;
+    std::vector < std::unique_ptr<Controller> >controller_pool;
 
 public:
     //game basic
@@ -25,7 +27,7 @@ public:
     void render();
     void run();
     void cleanup();
-    void setSpectator(Controller& controller);
+    void setSpectator(Controller controller);
     void setPlayerNumber(int player_number);
     void updateEconomy();
 
@@ -41,6 +43,9 @@ public:
 
     //controller
     void initController();
+    void updateController();
+    void updateSpectator();
+    void updateKBInput();
 
     Color selectColor(int id);
 };

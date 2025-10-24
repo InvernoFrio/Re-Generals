@@ -71,11 +71,26 @@ include CMakeFiles/Re-Generals.dir/flags.make
 CMakeFiles/Re-Generals.dir/codegen:
 .PHONY : CMakeFiles/Re-Generals.dir/codegen
 
+CMakeFiles/Re-Generals.dir/src/bot.cpp.obj: CMakeFiles/Re-Generals.dir/flags.make
+CMakeFiles/Re-Generals.dir/src/bot.cpp.obj: CMakeFiles/Re-Generals.dir/includes_CXX.rsp
+CMakeFiles/Re-Generals.dir/src/bot.cpp.obj: E:/Projects/re-generals/src/bot.cpp
+CMakeFiles/Re-Generals.dir/src/bot.cpp.obj: CMakeFiles/Re-Generals.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Projects\re-generals\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Re-Generals.dir/src/bot.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Re-Generals.dir/src/bot.cpp.obj -MF CMakeFiles\Re-Generals.dir\src\bot.cpp.obj.d -o CMakeFiles\Re-Generals.dir\src\bot.cpp.obj -c E:\Projects\re-generals\src\bot.cpp
+
+CMakeFiles/Re-Generals.dir/src/bot.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Re-Generals.dir/src/bot.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Projects\re-generals\src\bot.cpp > CMakeFiles\Re-Generals.dir\src\bot.cpp.i
+
+CMakeFiles/Re-Generals.dir/src/bot.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Re-Generals.dir/src/bot.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Projects\re-generals\src\bot.cpp -o CMakeFiles\Re-Generals.dir\src\bot.cpp.s
+
 CMakeFiles/Re-Generals.dir/src/controller.cpp.obj: CMakeFiles/Re-Generals.dir/flags.make
 CMakeFiles/Re-Generals.dir/src/controller.cpp.obj: CMakeFiles/Re-Generals.dir/includes_CXX.rsp
 CMakeFiles/Re-Generals.dir/src/controller.cpp.obj: E:/Projects/re-generals/src/controller.cpp
 CMakeFiles/Re-Generals.dir/src/controller.cpp.obj: CMakeFiles/Re-Generals.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Projects\re-generals\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Re-Generals.dir/src/controller.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Projects\re-generals\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Re-Generals.dir/src/controller.cpp.obj"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Re-Generals.dir/src/controller.cpp.obj -MF CMakeFiles\Re-Generals.dir\src\controller.cpp.obj.d -o CMakeFiles\Re-Generals.dir\src\controller.cpp.obj -c E:\Projects\re-generals\src\controller.cpp
 
 CMakeFiles/Re-Generals.dir/src/controller.cpp.i: cmake_force
@@ -90,7 +105,7 @@ CMakeFiles/Re-Generals.dir/src/game.cpp.obj: CMakeFiles/Re-Generals.dir/flags.ma
 CMakeFiles/Re-Generals.dir/src/game.cpp.obj: CMakeFiles/Re-Generals.dir/includes_CXX.rsp
 CMakeFiles/Re-Generals.dir/src/game.cpp.obj: E:/Projects/re-generals/src/game.cpp
 CMakeFiles/Re-Generals.dir/src/game.cpp.obj: CMakeFiles/Re-Generals.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Projects\re-generals\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Re-Generals.dir/src/game.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Projects\re-generals\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Re-Generals.dir/src/game.cpp.obj"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Re-Generals.dir/src/game.cpp.obj -MF CMakeFiles\Re-Generals.dir\src\game.cpp.obj.d -o CMakeFiles\Re-Generals.dir\src\game.cpp.obj -c E:\Projects\re-generals\src\game.cpp
 
 CMakeFiles/Re-Generals.dir/src/game.cpp.i: cmake_force
@@ -105,7 +120,7 @@ CMakeFiles/Re-Generals.dir/src/main.cpp.obj: CMakeFiles/Re-Generals.dir/flags.ma
 CMakeFiles/Re-Generals.dir/src/main.cpp.obj: CMakeFiles/Re-Generals.dir/includes_CXX.rsp
 CMakeFiles/Re-Generals.dir/src/main.cpp.obj: E:/Projects/re-generals/src/main.cpp
 CMakeFiles/Re-Generals.dir/src/main.cpp.obj: CMakeFiles/Re-Generals.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Projects\re-generals\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Re-Generals.dir/src/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Projects\re-generals\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Re-Generals.dir/src/main.cpp.obj"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Re-Generals.dir/src/main.cpp.obj -MF CMakeFiles\Re-Generals.dir\src\main.cpp.obj.d -o CMakeFiles\Re-Generals.dir\src\main.cpp.obj -c E:\Projects\re-generals\src\main.cpp
 
 CMakeFiles/Re-Generals.dir/src/main.cpp.i: cmake_force
@@ -120,7 +135,7 @@ CMakeFiles/Re-Generals.dir/src/map.cpp.obj: CMakeFiles/Re-Generals.dir/flags.mak
 CMakeFiles/Re-Generals.dir/src/map.cpp.obj: CMakeFiles/Re-Generals.dir/includes_CXX.rsp
 CMakeFiles/Re-Generals.dir/src/map.cpp.obj: E:/Projects/re-generals/src/map.cpp
 CMakeFiles/Re-Generals.dir/src/map.cpp.obj: CMakeFiles/Re-Generals.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Projects\re-generals\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Re-Generals.dir/src/map.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Projects\re-generals\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Re-Generals.dir/src/map.cpp.obj"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Re-Generals.dir/src/map.cpp.obj -MF CMakeFiles\Re-Generals.dir\src\map.cpp.obj.d -o CMakeFiles\Re-Generals.dir\src\map.cpp.obj -c E:\Projects\re-generals\src\map.cpp
 
 CMakeFiles/Re-Generals.dir/src/map.cpp.i: cmake_force
@@ -131,11 +146,26 @@ CMakeFiles/Re-Generals.dir/src/map.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Re-Generals.dir/src/map.cpp.s"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Projects\re-generals\src\map.cpp -o CMakeFiles\Re-Generals.dir\src\map.cpp.s
 
+CMakeFiles/Re-Generals.dir/src/player.cpp.obj: CMakeFiles/Re-Generals.dir/flags.make
+CMakeFiles/Re-Generals.dir/src/player.cpp.obj: CMakeFiles/Re-Generals.dir/includes_CXX.rsp
+CMakeFiles/Re-Generals.dir/src/player.cpp.obj: E:/Projects/re-generals/src/player.cpp
+CMakeFiles/Re-Generals.dir/src/player.cpp.obj: CMakeFiles/Re-Generals.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Projects\re-generals\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Re-Generals.dir/src/player.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Re-Generals.dir/src/player.cpp.obj -MF CMakeFiles\Re-Generals.dir\src\player.cpp.obj.d -o CMakeFiles\Re-Generals.dir\src\player.cpp.obj -c E:\Projects\re-generals\src\player.cpp
+
+CMakeFiles/Re-Generals.dir/src/player.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Re-Generals.dir/src/player.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Projects\re-generals\src\player.cpp > CMakeFiles\Re-Generals.dir\src\player.cpp.i
+
+CMakeFiles/Re-Generals.dir/src/player.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Re-Generals.dir/src/player.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Projects\re-generals\src\player.cpp -o CMakeFiles\Re-Generals.dir\src\player.cpp.s
+
 CMakeFiles/Re-Generals.dir/src/square.cpp.obj: CMakeFiles/Re-Generals.dir/flags.make
 CMakeFiles/Re-Generals.dir/src/square.cpp.obj: CMakeFiles/Re-Generals.dir/includes_CXX.rsp
 CMakeFiles/Re-Generals.dir/src/square.cpp.obj: E:/Projects/re-generals/src/square.cpp
 CMakeFiles/Re-Generals.dir/src/square.cpp.obj: CMakeFiles/Re-Generals.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Projects\re-generals\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Re-Generals.dir/src/square.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Projects\re-generals\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Re-Generals.dir/src/square.cpp.obj"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Re-Generals.dir/src/square.cpp.obj -MF CMakeFiles\Re-Generals.dir\src\square.cpp.obj.d -o CMakeFiles\Re-Generals.dir\src\square.cpp.obj -c E:\Projects\re-generals\src\square.cpp
 
 CMakeFiles/Re-Generals.dir/src/square.cpp.i: cmake_force
@@ -150,7 +180,7 @@ CMakeFiles/Re-Generals.dir/src/texturepool.cpp.obj: CMakeFiles/Re-Generals.dir/f
 CMakeFiles/Re-Generals.dir/src/texturepool.cpp.obj: CMakeFiles/Re-Generals.dir/includes_CXX.rsp
 CMakeFiles/Re-Generals.dir/src/texturepool.cpp.obj: E:/Projects/re-generals/src/texturepool.cpp
 CMakeFiles/Re-Generals.dir/src/texturepool.cpp.obj: CMakeFiles/Re-Generals.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Projects\re-generals\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Re-Generals.dir/src/texturepool.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Projects\re-generals\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Re-Generals.dir/src/texturepool.cpp.obj"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Re-Generals.dir/src/texturepool.cpp.obj -MF CMakeFiles\Re-Generals.dir\src\texturepool.cpp.obj.d -o CMakeFiles\Re-Generals.dir\src\texturepool.cpp.obj -c E:\Projects\re-generals\src\texturepool.cpp
 
 CMakeFiles/Re-Generals.dir/src/texturepool.cpp.i: cmake_force
@@ -163,20 +193,24 @@ CMakeFiles/Re-Generals.dir/src/texturepool.cpp.s: cmake_force
 
 # Object files for target Re-Generals
 Re__Generals_OBJECTS = \
+"CMakeFiles/Re-Generals.dir/src/bot.cpp.obj" \
 "CMakeFiles/Re-Generals.dir/src/controller.cpp.obj" \
 "CMakeFiles/Re-Generals.dir/src/game.cpp.obj" \
 "CMakeFiles/Re-Generals.dir/src/main.cpp.obj" \
 "CMakeFiles/Re-Generals.dir/src/map.cpp.obj" \
+"CMakeFiles/Re-Generals.dir/src/player.cpp.obj" \
 "CMakeFiles/Re-Generals.dir/src/square.cpp.obj" \
 "CMakeFiles/Re-Generals.dir/src/texturepool.cpp.obj"
 
 # External object files for target Re-Generals
 Re__Generals_EXTERNAL_OBJECTS =
 
+E:/Projects/re-generals/bin/Re-Generals.exe: CMakeFiles/Re-Generals.dir/src/bot.cpp.obj
 E:/Projects/re-generals/bin/Re-Generals.exe: CMakeFiles/Re-Generals.dir/src/controller.cpp.obj
 E:/Projects/re-generals/bin/Re-Generals.exe: CMakeFiles/Re-Generals.dir/src/game.cpp.obj
 E:/Projects/re-generals/bin/Re-Generals.exe: CMakeFiles/Re-Generals.dir/src/main.cpp.obj
 E:/Projects/re-generals/bin/Re-Generals.exe: CMakeFiles/Re-Generals.dir/src/map.cpp.obj
+E:/Projects/re-generals/bin/Re-Generals.exe: CMakeFiles/Re-Generals.dir/src/player.cpp.obj
 E:/Projects/re-generals/bin/Re-Generals.exe: CMakeFiles/Re-Generals.dir/src/square.cpp.obj
 E:/Projects/re-generals/bin/Re-Generals.exe: CMakeFiles/Re-Generals.dir/src/texturepool.cpp.obj
 E:/Projects/re-generals/bin/Re-Generals.exe: CMakeFiles/Re-Generals.dir/build.make
@@ -184,7 +218,7 @@ E:/Projects/re-generals/bin/Re-Generals.exe: E:/Projects/re-generals/lib/raylib/
 E:/Projects/re-generals/bin/Re-Generals.exe: CMakeFiles/Re-Generals.dir/linkLibs.rsp
 E:/Projects/re-generals/bin/Re-Generals.exe: CMakeFiles/Re-Generals.dir/objects1.rsp
 E:/Projects/re-generals/bin/Re-Generals.exe: CMakeFiles/Re-Generals.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=E:\Projects\re-generals\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable E:\Projects\re-generals\bin\Re-Generals.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=E:\Projects\re-generals\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable E:\Projects\re-generals\bin\Re-Generals.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Re-Generals.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

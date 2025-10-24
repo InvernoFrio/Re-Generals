@@ -17,6 +17,7 @@ private:
 
 public:
     Controller();
+    virtual ~Controller() = default;
     Controller(int id, Color color);
     int getId();
     Color getColor();

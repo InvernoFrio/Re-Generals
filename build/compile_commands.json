@@ -1,6 +1,12 @@
 [
 {
   "directory": "E:/Projects/re-generals/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/Re-Generals.dir/includes_CXX.rsp -g -o CMakeFiles\\Re-Generals.dir\\src\\bot.cpp.obj -c E:\\Projects\\re-generals\\src\\bot.cpp",
+  "file": "E:/Projects/re-generals/src/bot.cpp",
+  "output": "CMakeFiles/Re-Generals.dir/src/bot.cpp.obj"
+},
+{
+  "directory": "E:/Projects/re-generals/build",
   "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/Re-Generals.dir/includes_CXX.rsp -g -o CMakeFiles\\Re-Generals.dir\\src\\controller.cpp.obj -c E:\\Projects\\re-generals\\src\\controller.cpp",
   "file": "E:/Projects/re-generals/src/controller.cpp",
   "output": "CMakeFiles/Re-Generals.dir/src/controller.cpp.obj"
@@ -22,6 +28,12 @@
   "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/Re-Generals.dir/includes_CXX.rsp -g -o CMakeFiles\\Re-Generals.dir\\src\\map.cpp.obj -c E:\\Projects\\re-generals\\src\\map.cpp",
   "file": "E:/Projects/re-generals/src/map.cpp",
   "output": "CMakeFiles/Re-Generals.dir/src/map.cpp.obj"
+},
+{
+  "directory": "E:/Projects/re-generals/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/Re-Generals.dir/includes_CXX.rsp -g -o CMakeFiles\\Re-Generals.dir\\src\\player.cpp.obj -c E:\\Projects\\re-generals\\src\\player.cpp",
+  "file": "E:/Projects/re-generals/src/player.cpp",
+  "output": "CMakeFiles/Re-Generals.dir/src/player.cpp.obj"
 },
 {
   "directory": "E:/Projects/re-generals/build",

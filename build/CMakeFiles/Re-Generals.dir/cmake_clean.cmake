@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Re-Generals.dir/src/bot.cpp.obj"
+  "CMakeFiles/Re-Generals.dir/src/bot.cpp.obj.d"
   "CMakeFiles/Re-Generals.dir/src/controller.cpp.obj"
   "CMakeFiles/Re-Generals.dir/src/controller.cpp.obj.d"
   "CMakeFiles/Re-Generals.dir/src/game.cpp.obj"
@@ -7,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Re-Generals.dir/src/main.cpp.obj.d"
   "CMakeFiles/Re-Generals.dir/src/map.cpp.obj"
   "CMakeFiles/Re-Generals.dir/src/map.cpp.obj.d"
+  "CMakeFiles/Re-Generals.dir/src/player.cpp.obj"
+  "CMakeFiles/Re-Generals.dir/src/player.cpp.obj.d"
   "CMakeFiles/Re-Generals.dir/src/square.cpp.obj"
   "CMakeFiles/Re-Generals.dir/src/square.cpp.obj.d"
   "CMakeFiles/Re-Generals.dir/src/texturepool.cpp.obj"
