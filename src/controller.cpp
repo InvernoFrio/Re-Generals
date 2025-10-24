@@ -29,7 +29,6 @@ void Controller::initCamera() {
 }
 void Controller::update() {
     updateCamera();
-
 }
 void Controller::updateCamera() {
     if (last_screen_height != GetScreenHeight() || last_screen_width != GetScreenWidth()) {

@@ -19,6 +19,7 @@ private:
     std::vector<Controller>controller_pool;
 
 public:
+    //game basic
     void init();
     void update();
     void render();
@@ -37,6 +38,9 @@ public:
     void refreshMap();
     bool checkConnectivity();
     void clearMap();
+
+    //controller
+    void initController();
 
     Color selectColor(int id);
 };

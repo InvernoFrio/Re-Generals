@@ -1,5 +1,6 @@
 CMakeFiles/Re-Generals.dir/src/game.cpp.obj: \
  E:\Projects\re-generals\src\game.cpp \
+ E:/Projects/re-generals/include/game.h \
  E:/Projects/re-generals/include/raylib/raylib.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdarg.h \
  C:/MinGW/x86_64-w64-mingw32/include/stdarg.h \
@@ -66,9 +67,6 @@ CMakeFiles/Re-Generals.dir/src/game.cpp.obj: \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/tr1/poly_hermite.tcc \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/tr1/poly_laguerre.tcc \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/tr1/riemann_zeta.tcc \
- E:/Projects/re-generals/include/game.h \
- E:/Projects/re-generals/include/raylib/raylib.h \
- E:/Projects/re-generals/include/raylib/raymath.h \
  E:/Projects/re-generals/include/map.h \
  E:/Projects/re-generals/include/square.h \
  E:/Projects/re-generals/include/constants.h \

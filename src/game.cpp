@@ -1,5 +1,3 @@
-#include"raylib/raylib.h"
-#include"raylib/raymath.h"
 #include"game.h"
 void Game::init() {
     //init window
@@ -9,10 +7,10 @@ void Game::init() {
     SetTargetFPS(DEFAULT_FPS);
     is_running = true;
 
-    //init map
+    initController();
     initMap();
-
-    //init controller
+}
+void Game::initController() {
     controller_pool.push_back(Controller(SPECTATOR, WHITE));
     setPlayerNumber(DEFAULT_PLAYER_NUMBER);
     setSpectator(controller_pool[SPECTATOR]);
@@ -127,7 +125,8 @@ void Game::generateGeneral() {
         now.setSpawnSpeed(2);
     }
 }
-bool Game::checkConnectivity() {//TODO
+bool Game::checkConnectivity() {
+
     return true;
 }
 void Game::refreshMap() {
