@@ -121,6 +121,7 @@ CMakeFiles/Re-Generals.dir/src/map.cpp.obj: \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/cxxabi_init_exception.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/typeinfo \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/nested_exception.h \
+ E:/Projects/re-generals/include/player.h \
  E:/Projects/re-generals/include/controller.h \
  E:/Projects/re-generals/include/raylib/raymath.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/math.h \

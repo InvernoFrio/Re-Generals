@@ -5,30 +5,20 @@
 #include"raylib/raymath.h"
 #include<stack>
 class Controller {
-private:
+protected:
     int id;
     int land_num;
-    bool is_alive, is_dragging;
-    int last_screen_width, last_screen_height;
-    Vector2 camera_last_pos;
+    bool is_alive;
     Color color;
-    Camera2D camera;
-
 
 public:
-    Controller();
     virtual ~Controller() = default;
-    Controller(int id, Color color);
     int getId();
-    Color getColor();
+    void setId(int id);
     void setColor(Color color);
-    void handlerCameraInput();
-    void init();
-    void initCamera();
-    void update();
-    void updateCamera();
-    void updateCameraOffset();
-    Camera2D getCamera();
+    int getLandNum();
+    Color getColor();
+    virtual void update() = 0;
 };
 
 #endif

@@ -10,17 +10,29 @@ CMakeFiles/Re-Generals.dir/src/main.cpp.obj: \
  C:/MinGW/x86_64-w64-mingw32/include/_mingw_mac.h \
  C:/MinGW/x86_64-w64-mingw32/include/_mingw_secapi.h \
  C:/MinGW/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
- E:/Projects/re-generals/include/raylib/raymath.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/math.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/cmath \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/requires_hosted.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/unique_ptr.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/pstl/pstl_config.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/cpp_type_traits.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/version.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/debug/assertions.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/type_traits \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/version.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/tuple \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_pair.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/move.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/utility.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/uses_allocator.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/invoke.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_function.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/backward/binders.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/functional_hash.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/hash_bytes.h \
+ E:/Projects/re-generals/include/raylib/raymath.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/math.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/cmath \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/requires_hosted.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/cpp_type_traits.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/ext/type_traits.h \
  C:/MinGW/x86_64-w64-mingw32/include/math.h \
  C:/MinGW/x86_64-w64-mingw32/include/crtdefs.h \
@@ -41,13 +53,9 @@ CMakeFiles/Re-Generals.dir/src/main.cpp.obj: \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/functexcept.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/exception_defines.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/ext/numeric_traits.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_pair.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/move.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/utility.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_iterator_base_types.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_iterator_base_funcs.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/concept_check.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/debug/assertions.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_iterator.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/ptr_traits.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/debug/debug.h \
@@ -79,8 +87,6 @@ CMakeFiles/Re-Generals.dir/src/main.cpp.obj: \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/new \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/exception.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/memoryfwd.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_function.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/backward/binders.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/ext/alloc_traits.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/alloc_traits.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_construct.h \
@@ -88,9 +94,6 @@ CMakeFiles/Re-Generals.dir/src/main.cpp.obj: \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/node_handle.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_map.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/initializer_list \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/tuple \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/uses_allocator.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/invoke.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_multimap.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/range_access.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/erase_if.h \
@@ -125,8 +128,6 @@ CMakeFiles/Re-Generals.dir/src/main.cpp.obj: \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/refwrap.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/basic_string.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/string_view \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/functional_hash.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/hash_bytes.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/string_view.tcc \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/ext/string_conversions.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/cstdlib \
@@ -140,6 +141,7 @@ CMakeFiles/Re-Generals.dir/src/main.cpp.obj: \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/cxxabi_init_exception.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/typeinfo \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/nested_exception.h \
+ E:/Projects/re-generals/include/player.h \
  E:/Projects/re-generals/include/controller.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/stack \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/deque \
@@ -186,6 +188,7 @@ CMakeFiles/Re-Generals.dir/src/main.cpp.obj: \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/istream.tcc \
  C:/MinGW/x86_64-w64-mingw32/include/string.h \
  C:/MinGW/x86_64-w64-mingw32/include/sec_api/string_s.h \
+ E:/Projects/re-generals/include/bot.h \
  C:/MinGW/x86_64-w64-mingw32/include/time.h \
  C:/MinGW/x86_64-w64-mingw32/include/_timeval.h \
  C:/MinGW/x86_64-w64-mingw32/include/pthread_time.h \
@@ -193,4 +196,9 @@ CMakeFiles/Re-Generals.dir/src/main.cpp.obj: \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/vector \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_vector.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_bvector.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/vector.tcc
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/vector.tcc \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/unordered_map \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/unordered_map.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/hashtable.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/hashtable_policy.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/enable_special_members.h

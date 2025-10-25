@@ -5,20 +5,22 @@
 #include"raylib/raymath.h"
 #include"map.h"
 #include"player.h"
-#include"controller.h"
+#include"bot.h"
 #include"texturepool.h"
 #include"constants.h"
 #include<time.h>
 #include<vector>
+#include<unordered_map>
 class Game {
 private:
     bool color_selected[MAX_PLAYER_NUMBER];
-    int player_number;
+    int player_number, bot_number;
     bool is_running;
 
     Map map;
-    Controller spectator;
+    Player* activated_player_ptr;
     std::vector < std::unique_ptr<Controller> >controller_pool;
+    std::unordered_map<int, Player* >player_register;
 
 public:
     //game basic
@@ -27,8 +29,9 @@ public:
     void render();
     void run();
     void cleanup();
-    void setSpectator(Controller controller);
     void setPlayerNumber(int player_number);
+    void setBotNumber(int bot_number);
+    void setActivatedPlayer(int id);
     void updateEconomy();
 
     //map
@@ -38,15 +41,13 @@ public:
     void generateCities();
     void generateGeneral();
     void refreshMap();
-    bool checkConnectivity();
+    bool checkMapConnectivity();
     void clearMap();
 
     //controller
-    void initController();
-    void updateController();
-    void updateSpectator();
-    void updateKBInput();
+    void initControllerPool();
+    void updateControllers();
 
-    Color selectColor(int id);
+    Color selectColor();
 };
 #endif

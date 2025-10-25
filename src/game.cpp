@@ -5,35 +5,43 @@ void Game::init() {
     InitWindow(DEFAULT_SCREEN_WIDTH, DEFAULT_SCREEN_HEIGHT, PROJECT_NAME);
     SetWindowState(FLAG_WINDOW_RESIZABLE);
     SetTargetFPS(DEFAULT_FPS);
+    setPlayerNumber(DEFAULT_PLAYER_NUMBER);
+    setBotNumber(DEFAULT_BOT_NUMBER);
     is_running = true;
 
-    initController();
+    initControllerPool();
+    setActivatedPlayer(PLAYER);
+
     initMap();
 }
-void Game::initController() {
-
-    controller_pool.push_back(std::make_unique<Controller>(SPECTATOR, WHITE));
-    setPlayerNumber(DEFAULT_PLAYER_NUMBER);
+void Game::initControllerPool() {
+    controller_pool.push_back(std::make_unique<Player>(SPECTATOR, WHITE));//spectator
+    for (int i = 1;i <= player_number;i++) {//player
+        auto player = std::make_unique<Player>(i, selectColor());
+        player_register[i] = player.get();
+        controller_pool.push_back(std::move(player));
+    }
+    for (int i = player_number + 1;i <= player_number + bot_number;i++) {//bot
+        controller_pool.push_back(std::make_unique<Bot>(i, selectColor()));
+    }
 }
 void Game::initMap() {
     map.init();
-    map.setHeight(DEFAULT_MAP_HEIGHT);
-    map.setWidth(DEFAULT_MAP_WIDTH);
-    map.setCityNumber(DEFAULT_CITY_NUMBER);
-    map.setMountainNumber(DEFAULT_MOUNTAIN_NUMBER);
     refreshMap();
 }
+void Game::setActivatedPlayer(int id) {
+    activated_player_ptr = player_register[id];
+}
 void Game::update() {
-    updateSpectator();
-    updateController();
+    updateControllers();
 }
 void Game::render() {
     BeginDrawing();
 
     //绘制游戏内容
-    BeginMode2D(spectator.getCamera());
+    BeginMode2D(activated_player_ptr->getCamera());
     ClearBackground(BACKGUROND_COLOR);
-    map.draw(spectator);
+    map.draw(*activated_player_ptr);
     EndMode2D();
 
     //绘制UI内容
@@ -53,32 +61,18 @@ void Game::cleanup() {
     map.textures_pool.unloadAll();
     CloseWindow();
 }
-void Game::updateController() {
+void Game::updateControllers() {
     for (auto& controller : controller_pool) {
         controller->update();
     }
 }
-void Game::updateSpectator() {
-    spectator.updateCamera();
-    updateKBInput();
-}
-void Game::updateKBInput() {
-
-}
-void Game::setSpectator(Controller controller) {
-    this->spectator = controller;
-}
 void Game::setPlayerNumber(int player_number) {
-    if (player_number >= MAX_PLAYER_NUMBER || player_number <= 1)return;
     this->player_number = player_number;
-    if (controller_pool.size() - 1 > player_number) {
-        for (int i = 1;i <= controller_pool.size() - player_number;i++)controller_pool.pop_back();
-    }
-    else if (controller_pool.size() - 1 < player_number) {
-        for (int i = controller_pool.size();i <= player_number;i++)controller_pool.push_back(std::make_unique<Controller>(i, selectColor(i)));
-    }
 }
-Color Game::selectColor(int id) {
+void Game::setBotNumber(int bot_number) {
+    this->bot_number = bot_number;
+}
+Color Game::selectColor() {
     srand(time(0));
     int p = rand() % MAX_PLAYER_NUMBER;
     while (color_selected[p])p = (p + 1) % MAX_PLAYER_NUMBER;
@@ -92,7 +86,7 @@ void Game::generateObstacles() {
     do {
         generateMountains();
         generateCities();
-    } while (!checkConnectivity());
+    } while (!checkMapConnectivity());
 }
 void Game::generateMountains() {
     srand(time(0));
@@ -138,7 +132,7 @@ void Game::generateGeneral() {
         now.setSpawnSpeed(2);
     }
 }
-bool Game::checkConnectivity() {
+bool Game::checkMapConnectivity() {
 
     return true;
 }

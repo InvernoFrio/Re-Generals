@@ -1,7 +1,7 @@
 #include"square.h"
 #include"texturepool.h"
 #include"constants.h"
-#include"controller.h"
+#include"player.h"
 #include<algorithm>
 #include<iostream>
 #include<string.h>
@@ -28,7 +28,7 @@ public:
 
     Color brightness(Color base_color, float factor);
     void init();
-    void draw(Controller& spectator);
+    void draw(Player& spectator);
     void drawScaledTexture(Texture2D texture, Rectangle square);
     void drawCentredText(const char* text, Rectangle square, float factor);
 };

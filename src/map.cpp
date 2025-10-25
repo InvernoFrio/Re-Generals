@@ -28,8 +28,13 @@ void Map::init() {
 
     //init font
     font = LoadFont("./assets/LiberationSans.ttf");
+
+    setHeight(DEFAULT_MAP_HEIGHT);
+    setWidth(DEFAULT_MAP_WIDTH);
+    setCityNumber(DEFAULT_CITY_NUMBER);
+    setMountainNumber(DEFAULT_MOUNTAIN_NUMBER);
 }
-void Map::draw(Controller& spectator) {
+void Map::draw(Player& player) {
     for (int i = 1;i <= map_height;i++) {
         for (int j = 1;j <= map_width;j++) {
             Square& now = map[i][j];
@@ -38,16 +43,16 @@ void Map::draw(Controller& spectator) {
             for (int k = 0;k < 9;k++) {
                 int tox = i + dx[k], toy = j + dy[k];
                 if (tox<1 || tox>map_height || toy<1 || toy>map_width)continue;
-                if (map[tox][toy].getId() == spectator.getId()) is_discovered = true;
+                if (map[tox][toy].getId() == player.getId()) is_discovered = true;
             }
             Rectangle rec = { now.getX(), now.getY(), SQUARE_SIZE, SQUARE_SIZE };
             //draw squares
-            if (is_discovered || spectator.getId() == 0) {
+            if (is_discovered || player.getId() == 0) {
                 DrawRectangleRec(rec, now.getColor());
                 if (now.getType() != TYPE_LAND)drawScaledTexture(textures_pool.get(now.getType()), rec);
-                int line_thickness = std::min(5 / spectator.getCamera().zoom, 3.0f);
+                int line_thickness = std::min(5 / player.getCamera().zoom, 3.0f);
                 DrawRectangleLinesEx(rec, line_thickness, BLACK);
-                if (now.getNumSolders() != 0)drawCentredText((std::to_string(now.getNumSolders())).c_str(), rec, spectator.getCamera().zoom);
+                if (now.getNumSolders() != 0)drawCentredText((std::to_string(now.getNumSolders())).c_str(), rec, player.getCamera().zoom);
             }
             else {
                 DrawRectangleRec(rec, FOG_COLOR);

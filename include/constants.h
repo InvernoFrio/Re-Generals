@@ -46,7 +46,8 @@ constexpr int SQUARE_SIZE = 100;
 constexpr int DEFAULT_SCREEN_WIDTH = 800;
 constexpr int DEFAULT_SCREEN_HEIGHT = 600;
 constexpr int DEFAULT_FPS = 60;
-constexpr int DEFAULT_PLAYER_NUMBER = 8;
+constexpr int DEFAULT_PLAYER_NUMBER = 1;
+constexpr int DEFAULT_BOT_NUMBER = 3;
 constexpr int DEFAULT_MAP_WIDTH = 20;
 constexpr int DEFAULT_MAP_HEIGHT = 20;
 
@@ -54,6 +55,7 @@ constexpr int DEFAULT_MOUNTAIN_NUMBER = 20;
 constexpr int DEFAULT_CITY_NUMBER = 20;
 
 constexpr int SPECTATOR = 0;
+constexpr int PLAYER = 1;
 
 constexpr Color BACKGUROND_COLOR = Color{ 34,34,34,255 };
 constexpr Color FOG_COLOR = Color{ 57,57,57,255 };
