@@ -7,14 +7,18 @@
 #include"player.h"
 #include"bot.h"
 #include"texturepool.h"
+#include<queue>
 #include"constants.h"
 #include<time.h>
 #include<vector>
 #include<unordered_map>
+typedef std::pair<int, int> pii;
 class Game {
 private:
     bool color_selected[MAX_PLAYER_NUMBER];
     int player_number, bot_number;
+    int frame_number, round;
+    int speed;
     bool is_running;
 
     Map map;
@@ -33,6 +37,7 @@ public:
     void setBotNumber(int bot_number);
     void setActivatedPlayer(int id);
     void updateEconomy();
+    void setSpeed(int speed);
 
     //map
     void initMap();

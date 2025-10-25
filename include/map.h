@@ -28,7 +28,7 @@ public:
 
     Color brightness(Color base_color, float factor);
     void init();
-    void draw(Player& spectator);
+    void draw(Player* spectator);
     void drawScaledTexture(Texture2D texture, Rectangle square);
     void drawCentredText(const char* text, Rectangle square, float factor);
 };

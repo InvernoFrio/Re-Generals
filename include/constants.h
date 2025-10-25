@@ -71,6 +71,8 @@ enum SquareType {
     TYPE_LAND,
 };
 
+constexpr int DEFAULT_SPEED = 30;
+
 constexpr float FONT_SIZE = 40;
 
 constexpr Color color_pool[12] = { (Color) { 250,2,9,255 },(Color) { 68,144,253,255 }, (Color) { 8,128,12 ,255 },(Color) { 26,128,128,255 },(Color) { 245,141,21,255 },(Color) { 238,44,228 ,255 },(Color) { 127,0,127 ,255 },(Color) { 152,1,4 ,255 },(Color) { 176,173,56 ,255 },(Color) { 151,94,39 ,255 },(Color) { 57,40,253 ,255 },(Color) { 93,74,164 ,255 } };
