@@ -14,9 +14,10 @@ enum TEXTURE_ID {
     ARROWUP,
     ARROWDOWN,
     ARROWLEFT,
-    ARROWRIGHT
+    ARROWRIGHT,
 };
-constexpr char* TEXTURE_NAME[] = {
+constexpr int NO_ARROW = 0;
+constexpr const char* TEXTURE_NAME[] = {
     "general",
     "city",
     "mountain",
@@ -26,7 +27,7 @@ constexpr char* TEXTURE_NAME[] = {
     "arrowleft",
     "arrowright"
 };
-constexpr char* TEXTURE_PATH[] = {
+constexpr const char* TEXTURE_PATH[] = {
     "./assets/crown.png",
     "./assets/city.png",
     "./assets/mountain.png",
@@ -72,6 +73,9 @@ enum SquareType {
 };
 
 constexpr int DEFAULT_SPEED = 30;
+constexpr int MAX_MONTION_NUMBER = 200;
+constexpr int MOTION_INVERVAL = 150;
+constexpr int UNDO_INVERVAL = 150;
 
 constexpr float FONT_SIZE = 40;
 

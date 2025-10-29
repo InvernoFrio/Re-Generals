@@ -26,10 +26,6 @@
                     "description": "将反汇编风格设置为 Intel",
                     "text": "-gdb-set disassembly-flavor intel",
                     "ignoreFailures": true
-                },
-                {
-                    "description": "不中断程序启动",
-                    "text": "handle SIGINT pass nostop noprint"
                 }
             ],
             "preLaunchTask": "Build"

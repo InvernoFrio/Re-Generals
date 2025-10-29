@@ -3,13 +3,16 @@
 
 #include"raylib/raylib.h"
 #include"raylib/raymath.h"
-#include<stack>
+#include"square.h"
+#include"constants.h"
+#include<iostream>
 class Controller {
 protected:
     int id;
     int land_num;
     bool is_alive;
     Color color;
+    Square(*map)[MAX_MAP_WIDTH + 1];
 
 public:
     virtual ~Controller() = default;

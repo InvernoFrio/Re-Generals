@@ -20,6 +20,8 @@ private:
     int frame_number, round;
     int speed;
     bool is_running;
+    int map_height, map_width;
+    int city_number, mountain_number;
 
     Map map;
     Player* activated_player_ptr;
@@ -48,6 +50,10 @@ public:
     void refreshMap();
     bool checkMapConnectivity();
     void clearMap();
+    bool setHeight(int map_height);
+    bool setWidth(int map_width);
+    bool setCityNumber(int city_number);
+    bool setMountainNumber(int mountian_number);
 
     //controller
     void initControllerPool();

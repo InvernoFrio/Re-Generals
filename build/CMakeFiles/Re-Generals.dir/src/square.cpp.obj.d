@@ -10,4 +10,63 @@ CMakeFiles/Re-Generals.dir/src/square.cpp.obj: \
  C:/MinGW/x86_64-w64-mingw32/include/_mingw_mac.h \
  C:/MinGW/x86_64-w64-mingw32/include/_mingw_secapi.h \
  C:/MinGW/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
- E:/Projects/re-generals/include/constants.h
+ E:/Projects/re-generals/include/constants.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/unordered_map \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/requires_hosted.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/pstl/pstl_config.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/initializer_list \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/unordered_map.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/hashtable.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/hashtable_policy.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/tuple \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_pair.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/type_traits \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/version.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/move.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/utility.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/uses_allocator.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/invoke.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/functional_hash.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/hash_bytes.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_algobase.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/functexcept.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/exception_defines.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/cpp_type_traits.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/ext/type_traits.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/ext/numeric_traits.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_iterator_base_types.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_iterator_base_funcs.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/concept_check.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/debug/assertions.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_iterator.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/ptr_traits.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/debug/debug.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/predefined_ops.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bit \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/concepts \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/ext/aligned_buffer.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/ext/alloc_traits.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/alloc_traits.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_construct.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/new \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/exception.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/memoryfwd.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/allocator.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/new_allocator.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/enable_special_members.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_function.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/backward/binders.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/node_handle.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/range_access.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/erase_if.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/memory_resource.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/cstddef \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
+ C:/MinGW/x86_64-w64-mingw32/include/stddef.h \
+ C:/MinGW/x86_64-w64-mingw32/include/crtdefs.h \
+ C:/MinGW/x86_64-w64-mingw32/include/corecrt.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/uses_allocator_args.h
