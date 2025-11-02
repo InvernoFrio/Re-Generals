@@ -18,7 +18,7 @@ class Square {
 public:
     int getX();
     int getY();
-    int getNumSolders();
+    int getSolderNum();
     int getId();
     Color getColor();
     int getType();

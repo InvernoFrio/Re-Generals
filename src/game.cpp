@@ -25,7 +25,7 @@ void Game::initControllerPool() {
         controller_pool.push_back(std::move(player));
     }
     for (int i = player_number + 1;i <= player_number + bot_number;i++) {//bot
-        controller_pool.push_back(std::make_unique<Bot>(i, selectColor()));
+        controller_pool.push_back(std::make_unique<Bot>(i, selectColor(), this->map.map));
     }
 }
 void Game::initMap() {
@@ -44,12 +44,12 @@ void Game::setActivatedPlayer(int id) {
     activated_player_ptr->resetCamera();
 }
 void Game::update() {
+    updateControllers();
     if (frame_number % speed == 0) {
         std::cout << "round " << round << std::endl;
         round = frame_number / speed;
         updateEconomy();
     }
-    updateControllers();
 }
 void Game::render() {
     frame_number++;
@@ -79,7 +79,7 @@ void Game::cleanup() {
 }
 void Game::updateControllers() {
     for (auto& controller : controller_pool) {
-        controller->update();
+        if (controller->isAlive())controller->update();
     }
 }
 void Game::setPlayerNumber(int player_number) {
@@ -103,8 +103,71 @@ void Game::updateEconomy() {
         for (int j = 1;j <= map_width;j++) {
             Square& now = map.map[i][j];
             if (now.getId() == 0)continue;
-            if (now.getType() == TYPE_LAND && round % 25 == 0 && round != 0)now.grow();
+            if (now.getType() == TYPE_LAND && round % 50 == 0 && round != 0)now.grow();
             if ((now.getType() == TYPE_CITY || now.getType() == TYPE_GENERAL) && round % 2 == 0 && round != 0)now.grow();
+        }
+    }
+    for (auto& controller : controller_pool) {
+        if (controller->isAlive() == false)continue;
+        int dx[4] = { 0,0,-1,1 };
+        int dy[4] = { -1,1,0,0 };
+        Pos motion = controller->getMotion();
+        if (motion.dir == NO_ARROW)continue;
+        int x = motion.x, y = motion.y;
+        int tox = x + dx[motion.dir - ARROWUP], toy = y + dy[motion.dir - ARROWUP];
+        int id_now = controller->getId();
+        Square& now = map.map[x][y];
+        Square& to = map.map[tox][toy];
+        if (controller->getId() != now.getId()) {
+            controller->clearMotionQueue();
+            continue;
+        }
+        if (to.getType() == TYPE_MOUNTAIN) {
+            controller->clearMotionQueue();
+            continue;
+        }
+        if (to.getId() == now.getId()) {
+            to.setSolderNum(to.getSolderNum() + now.getSolderNum() - 1);
+            now.setSolderNum(1);
+            continue;
+        }
+        auto& target_ptr = controller_pool[to.getId()];
+        if (to.getSolderNum() - (now.getSolderNum() - 1) >= 0) {
+            to.setSolderNum(to.getSolderNum() - now.getSolderNum() + 1);
+            now.setSolderNum(1);
+            target_ptr->setSolderNum(target_ptr->getSolderNum() - now.getSolderNum() + 1);
+            controller->setSolderNum(target_ptr->getSolderNum() - now.getSolderNum() + 1);
+        }
+        else {
+            to.setColor(now.getColor());
+            to.setSolderNum(now.getSolderNum() - 1 - to.getSolderNum());
+            to.setId(now.getId());
+            now.setSolderNum(1);
+
+            target_ptr->setLandNum(controller->getLandNum() - 1);
+            controller->setLandNum(controller->getLandNum() + 1);
+            if (to.getType() == TYPE_GENERAL) {
+                killController(to.getId(), now.getId());
+                std::cout << "player " << controller->getId() << " captured player " << target_ptr->getId() << std::endl;
+            }
+        }
+    }
+}
+void Game::killController(int target, int by) {
+    auto& death_ptr = controller_pool[target];
+    auto& killer_ptr = controller_pool[by];
+    death_ptr->kill();
+
+    for (int i = 1;i <= map_height;i++) {
+        for (int j = 1;j <= map_width;j++) {
+            Square& now = map.map[i][j];
+            if (now.getId() == target) {
+                now.setColor(killer_ptr->getColor());
+                now.setId(by);
+            }
+            if (now.getType() == TYPE_GENERAL) {
+                now.setType(TYPE_CITY);
+            }
         }
     }
 }
@@ -142,7 +205,7 @@ void Game::generateCities() {
     }
 }
 void Game::generateGeneral() {
-    for (int i = 1;i <= player_number;i++) {
+    for (int i = 1;i <= player_number + bot_number;i++) {
         srand(time(0));
         int x, y;
         do {

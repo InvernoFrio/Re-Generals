@@ -7,6 +7,7 @@ Player::Player(int id, Color color, Square(*map)[MAX_MAP_WIDTH + 1]) {
     is_dragging = false;
     last_select_pos = Pos(0, 0, NO_ARROW);
     land_num = 1;
+    solder_num = 1;
     this->map = map;
     timer = clock();
     initCamera();
@@ -24,8 +25,10 @@ void Player::initCamera() {
 }
 void Player::update() {
     updateCamera();
-    handleMouseInput();
-    handleKBInput();
+    if (is_alive && id != SPECTATOR) {
+        handleMouseInput();
+        handleKBInput();
+    }
 }
 void Player::handleKBInput() {
     Pos dr[4] = { Pos(0,-1,NO_ARROW),Pos(0,1,NO_ARROW),Pos(-1,0,NO_ARROW),Pos(1,0,NO_ARROW) };
@@ -81,7 +84,6 @@ void Player::updateSelectedSquare(int x, int y, bool flag) {
         if (arrow != NO_ARROW && flag) {
             motion_queue.push_back(Pos(last_select_pos.x, last_select_pos.y, arrow));
             map[last_select_pos.x][last_select_pos.y].setArrow(id, arrow, true);
-            std::cout << "set (" << last_select_pos.x << ' ' << last_select_pos.y << ") arrow:" << TEXTURE_NAME[arrow] << std::endl;
         }
         if (last_select_pos.x != 0 && last_select_pos.y != 0) {//clear last select state
             map[last_select_pos.x][last_select_pos.y].setSelectState(id, false);
@@ -167,4 +169,13 @@ void Player::resetCamera() {
     camera.target = { 1.0f * map_height / 2 * SQUARE_SIZE,1.0f * map_width / 2 * SQUARE_SIZE };
     camera.zoom = 0.8f;
     updateCameraOffset();
+}
+Pos Player::getMotion() {
+    if (motion_queue.size()) {
+        Pos now = motion_queue.front();
+        map[now.x][now.y].setArrow(id, now.dir, false);
+        motion_queue.pop_front();
+        return now;
+    }
+    return Pos(0, 0, NO_ARROW);
 }

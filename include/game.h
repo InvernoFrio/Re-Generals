@@ -58,6 +58,7 @@ public:
     //controller
     void initControllerPool();
     void updateControllers();
+    void killController(int target, int by);
 
     Color selectColor();
 };

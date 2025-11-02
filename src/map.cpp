@@ -38,7 +38,7 @@ void Map::draw(Player* player, int map_height, int map_width) {
 
                 //draw lines
                 DrawRectangleLinesEx(rec, line_thickness, (map[i][j].isSelected(player_id) ? WHITE : BLACK));
-                if (now.getNumSolders() != 0)drawCentredText((std::to_string(now.getNumSolders())).c_str(), rec, player->getCamera().zoom);
+                if (now.getSolderNum() != 0)drawCentredText((std::to_string(now.getSolderNum())).c_str(), rec, player->getCamera().zoom);
             }
             else {//undiscovered
                 Color color = brightness(FOG_COLOR, (map[i][j].aroundedBy(player_id) ? 0.5f : 1.0f));//set color if arounded
