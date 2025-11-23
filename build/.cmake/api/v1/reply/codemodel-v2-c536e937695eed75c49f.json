@@ -16,7 +16,8 @@
 					"source" : ".",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1
 					]
 				}
 			],
@@ -31,7 +32,8 @@
 					"name" : "Re-Generals",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1
 					]
 				}
 			],
@@ -39,9 +41,16 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "Re-Generals::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Re-Generals-Debug-1fbf87fa811ef2dd7a38.json",
-					"name" : "Re-Generals",
+					"id" : "client::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-client-Debug-a83ba6f5873dda261ba7.json",
+					"name" : "client",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "server::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-server-Debug-38e66ddbb1cbe3bbbbec.json",
+					"name" : "server",
 					"projectIndex" : 0
 				}
 			]

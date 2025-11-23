@@ -1,13 +1,22 @@
 cmake_minimum_required(VERSION 3.16)
-project(Re-Generals VERSION 0.0.1)
+project(Re-Generals VERSION 0.9.1)
 
 set(RAYLIB_DIR ${CMAKE_SOURCE_DIR}/lib/raylib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
-include_directories(./include)
 
-aux_source_directory(./src src)
+set(CLIENT_SRC
+    src/client.cpp)
+set(SERVER_SRC
+    src/server.cpp)
+    
+include_directories(include)
+add_executable(client ${CLIENT_SRC})
+target_link_libraries(client ws2_32 ${RAYLIB_DIR}/libraylib.a opengl32 gdi32 winmm)
 
-add_executable(${PROJECT_NAME} ${src})
 
-target_link_libraries(${PROJECT_NAME} ${RAYLIB_DIR}/libraylib.a opengl32 gdi32 winmm)
+include_directories(include)
+add_executable(server ${SERVER_SRC})
+target_link_libraries(server ws2_32 ${RAYLIB_DIR}/libraylib.a opengl32 gdi32 winmm)
+
+

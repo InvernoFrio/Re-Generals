@@ -1,3 +1,4 @@
-E:/Projects/re-generals/build/CMakeFiles/Re-Generals.dir
+E:/Projects/re-generals/build/CMakeFiles/client.dir
+E:/Projects/re-generals/build/CMakeFiles/server.dir
 E:/Projects/re-generals/build/CMakeFiles/edit_cache.dir
 E:/Projects/re-generals/build/CMakeFiles/rebuild_cache.dir

@@ -1,26 +1,25 @@
-#include"square.h"
-#include"texturepool.h"
-#include"constants.h"
-#include"player.h"
-#include<algorithm>
-#include<iostream>
-#include<string.h>
-#ifndef _MAP_H_
-#define _MAP_H_
+#ifndef MAP_H
+#define MAP_H
 
+// #include"raylib/raylib.h"
+#include"constants.h"
+
+struct Square {
+    int id;
+    // Color color;
+    short num;
+};
 class Map {
 private:
-    Font font;
+    Square data[DEFAULT_MAP_HEIGHT][DEFAULT_MAP_WIDTH];
+    int height, width;
 public:
-    TexturePool texture_pool;
-
-    Square map[MAX_MAP_HEIGHT + 1][MAX_MAP_WIDTH + 1];
-    Color brightness(Color base_color, float factor);
     void init();
-    void draw(Player* spectator, int map_height, int map_width);
-    void drawScaledTexture(Texture2D texture, Rectangle square);
-    void drawCentredText(const char* text, Rectangle square, float factor);
+    Square& getSquare(int x, int y) { return data[x][y]; }
+    void setHeight(int h) { height = h; }
+    void setWidth(int w) { width = w; }
 };
 
 
-#endif
+
+#endif // MAP_H

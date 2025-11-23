@@ -116,209 +116,78 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Re-Generals
+# Target rules for targets named client
 
 # Build rule for target.
-Re-Generals: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Re-Generals
-.PHONY : Re-Generals
+client: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 client
+.PHONY : client
 
 # fast build rule for target.
-Re-Generals/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/build
-.PHONY : Re-Generals/fast
+client/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/build
+.PHONY : client/fast
 
-src/bot.obj: src/bot.cpp.obj
-.PHONY : src/bot.obj
+#=============================================================================
+# Target rules for targets named server
 
-# target to build an object file
-src/bot.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/bot.cpp.obj
-.PHONY : src/bot.cpp.obj
+# Build rule for target.
+server: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 server
+.PHONY : server
 
-src/bot.i: src/bot.cpp.i
-.PHONY : src/bot.i
+# fast build rule for target.
+server/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/build
+.PHONY : server/fast
 
-# target to preprocess a source file
-src/bot.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/bot.cpp.i
-.PHONY : src/bot.cpp.i
-
-src/bot.s: src/bot.cpp.s
-.PHONY : src/bot.s
-
-# target to generate assembly for a file
-src/bot.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/bot.cpp.s
-.PHONY : src/bot.cpp.s
-
-src/controller.obj: src/controller.cpp.obj
-.PHONY : src/controller.obj
+src/client.obj: src/client.cpp.obj
+.PHONY : src/client.obj
 
 # target to build an object file
-src/controller.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/controller.cpp.obj
-.PHONY : src/controller.cpp.obj
+src/client.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/src/client.cpp.obj
+.PHONY : src/client.cpp.obj
 
-src/controller.i: src/controller.cpp.i
-.PHONY : src/controller.i
+src/client.i: src/client.cpp.i
+.PHONY : src/client.i
 
 # target to preprocess a source file
-src/controller.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/controller.cpp.i
-.PHONY : src/controller.cpp.i
+src/client.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/src/client.cpp.i
+.PHONY : src/client.cpp.i
 
-src/controller.s: src/controller.cpp.s
-.PHONY : src/controller.s
+src/client.s: src/client.cpp.s
+.PHONY : src/client.s
 
 # target to generate assembly for a file
-src/controller.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/controller.cpp.s
-.PHONY : src/controller.cpp.s
+src/client.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/src/client.cpp.s
+.PHONY : src/client.cpp.s
 
-src/game.obj: src/game.cpp.obj
-.PHONY : src/game.obj
+src/server.obj: src/server.cpp.obj
+.PHONY : src/server.obj
 
 # target to build an object file
-src/game.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/game.cpp.obj
-.PHONY : src/game.cpp.obj
+src/server.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/src/server.cpp.obj
+.PHONY : src/server.cpp.obj
 
-src/game.i: src/game.cpp.i
-.PHONY : src/game.i
-
-# target to preprocess a source file
-src/game.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/game.cpp.i
-.PHONY : src/game.cpp.i
-
-src/game.s: src/game.cpp.s
-.PHONY : src/game.s
-
-# target to generate assembly for a file
-src/game.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/game.cpp.s
-.PHONY : src/game.cpp.s
-
-src/main.obj: src/main.cpp.obj
-.PHONY : src/main.obj
-
-# target to build an object file
-src/main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/main.cpp.obj
-.PHONY : src/main.cpp.obj
-
-src/main.i: src/main.cpp.i
-.PHONY : src/main.i
+src/server.i: src/server.cpp.i
+.PHONY : src/server.i
 
 # target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
+src/server.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/src/server.cpp.i
+.PHONY : src/server.cpp.i
 
-src/main.s: src/main.cpp.s
-.PHONY : src/main.s
-
-# target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
-
-src/map.obj: src/map.cpp.obj
-.PHONY : src/map.obj
-
-# target to build an object file
-src/map.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/map.cpp.obj
-.PHONY : src/map.cpp.obj
-
-src/map.i: src/map.cpp.i
-.PHONY : src/map.i
-
-# target to preprocess a source file
-src/map.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/map.cpp.i
-.PHONY : src/map.cpp.i
-
-src/map.s: src/map.cpp.s
-.PHONY : src/map.s
+src/server.s: src/server.cpp.s
+.PHONY : src/server.s
 
 # target to generate assembly for a file
-src/map.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/map.cpp.s
-.PHONY : src/map.cpp.s
-
-src/player.obj: src/player.cpp.obj
-.PHONY : src/player.obj
-
-# target to build an object file
-src/player.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/player.cpp.obj
-.PHONY : src/player.cpp.obj
-
-src/player.i: src/player.cpp.i
-.PHONY : src/player.i
-
-# target to preprocess a source file
-src/player.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/player.cpp.i
-.PHONY : src/player.cpp.i
-
-src/player.s: src/player.cpp.s
-.PHONY : src/player.s
-
-# target to generate assembly for a file
-src/player.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/player.cpp.s
-.PHONY : src/player.cpp.s
-
-src/square.obj: src/square.cpp.obj
-.PHONY : src/square.obj
-
-# target to build an object file
-src/square.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/square.cpp.obj
-.PHONY : src/square.cpp.obj
-
-src/square.i: src/square.cpp.i
-.PHONY : src/square.i
-
-# target to preprocess a source file
-src/square.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/square.cpp.i
-.PHONY : src/square.cpp.i
-
-src/square.s: src/square.cpp.s
-.PHONY : src/square.s
-
-# target to generate assembly for a file
-src/square.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/square.cpp.s
-.PHONY : src/square.cpp.s
-
-src/texturepool.obj: src/texturepool.cpp.obj
-.PHONY : src/texturepool.obj
-
-# target to build an object file
-src/texturepool.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/texturepool.cpp.obj
-.PHONY : src/texturepool.cpp.obj
-
-src/texturepool.i: src/texturepool.cpp.i
-.PHONY : src/texturepool.i
-
-# target to preprocess a source file
-src/texturepool.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/texturepool.cpp.i
-.PHONY : src/texturepool.cpp.i
-
-src/texturepool.s: src/texturepool.cpp.s
-.PHONY : src/texturepool.s
-
-# target to generate assembly for a file
-src/texturepool.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Re-Generals.dir\build.make CMakeFiles/Re-Generals.dir/src/texturepool.cpp.s
-.PHONY : src/texturepool.cpp.s
+src/server.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/src/server.cpp.s
+.PHONY : src/server.cpp.s
 
 # Help Target
 help:
@@ -328,31 +197,14 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... Re-Generals
-	@echo ... src/bot.obj
-	@echo ... src/bot.i
-	@echo ... src/bot.s
-	@echo ... src/controller.obj
-	@echo ... src/controller.i
-	@echo ... src/controller.s
-	@echo ... src/game.obj
-	@echo ... src/game.i
-	@echo ... src/game.s
-	@echo ... src/main.obj
-	@echo ... src/main.i
-	@echo ... src/main.s
-	@echo ... src/map.obj
-	@echo ... src/map.i
-	@echo ... src/map.s
-	@echo ... src/player.obj
-	@echo ... src/player.i
-	@echo ... src/player.s
-	@echo ... src/square.obj
-	@echo ... src/square.i
-	@echo ... src/square.s
-	@echo ... src/texturepool.obj
-	@echo ... src/texturepool.i
-	@echo ... src/texturepool.s
+	@echo ... client
+	@echo ... server
+	@echo ... src/client.obj
+	@echo ... src/client.i
+	@echo ... src/client.s
+	@echo ... src/server.obj
+	@echo ... src/server.i
+	@echo ... src/server.s
 .PHONY : help
 
 
