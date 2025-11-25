@@ -211,7 +211,6 @@ CMakeFiles/server.dir/src/server.cpp.obj: \
  C:/MinGW/x86_64-w64-mingw32/include/fltwinerror.h \
  C:/MinGW/x86_64-w64-mingw32/include/timezoneapi.h \
  C:/MinGW/x86_64-w64-mingw32/include/wingdi.h \
- C:/MinGW/x86_64-w64-mingw32/include/pshpack1.h \
  C:/MinGW/x86_64-w64-mingw32/include/winuser.h \
  C:/MinGW/x86_64-w64-mingw32/include/tvout.h \
  C:/MinGW/x86_64-w64-mingw32/include/winnls.h \
@@ -228,61 +227,6 @@ CMakeFiles/server.dir/src/server.cpp.obj: \
  C:/MinGW/x86_64-w64-mingw32/include/winnetwk.h \
  C:/MinGW/x86_64-w64-mingw32/include/wnnc.h \
  C:/MinGW/x86_64-w64-mingw32/include/virtdisk.h \
- C:/MinGW/x86_64-w64-mingw32/include/cderr.h \
- C:/MinGW/x86_64-w64-mingw32/include/dde.h \
- C:/MinGW/x86_64-w64-mingw32/include/ddeml.h \
- C:/MinGW/x86_64-w64-mingw32/include/dlgs.h \
- C:/MinGW/x86_64-w64-mingw32/include/lzexpand.h \
- C:/MinGW/x86_64-w64-mingw32/include/mmsystem.h \
- C:/MinGW/x86_64-w64-mingw32/include/mmsyscom.h \
- C:/MinGW/x86_64-w64-mingw32/include/mciapi.h \
- C:/MinGW/x86_64-w64-mingw32/include/mmiscapi.h \
- C:/MinGW/x86_64-w64-mingw32/include/mmiscapi2.h \
- C:/MinGW/x86_64-w64-mingw32/include/playsoundapi.h \
- C:/MinGW/x86_64-w64-mingw32/include/mmeapi.h \
- C:/MinGW/x86_64-w64-mingw32/include/timeapi.h \
- C:/MinGW/x86_64-w64-mingw32/include/joystickapi.h \
- C:/MinGW/x86_64-w64-mingw32/include/nb30.h \
- C:/MinGW/x86_64-w64-mingw32/include/rpc.h \
- C:/MinGW/x86_64-w64-mingw32/include/rpcdce.h \
- C:/MinGW/x86_64-w64-mingw32/include/rpcdcep.h \
- C:/MinGW/x86_64-w64-mingw32/include/rpcnsi.h \
- C:/MinGW/x86_64-w64-mingw32/include/rpcnterr.h \
- C:/MinGW/x86_64-w64-mingw32/include/rpcasync.h \
- C:/MinGW/x86_64-w64-mingw32/include/shellapi.h \
- C:/MinGW/x86_64-w64-mingw32/include/winperf.h \
- C:/MinGW/x86_64-w64-mingw32/include/winsock.h \
- C:/MinGW/x86_64-w64-mingw32/include/wincrypt.h \
- C:/MinGW/x86_64-w64-mingw32/include/bcrypt.h \
- C:/MinGW/x86_64-w64-mingw32/include/ncrypt.h \
- C:/MinGW/x86_64-w64-mingw32/include/dpapi.h \
- C:/MinGW/x86_64-w64-mingw32/include/winefs.h \
- C:/MinGW/x86_64-w64-mingw32/include/winscard.h \
- C:/MinGW/x86_64-w64-mingw32/include/wtypes.h \
- C:/MinGW/x86_64-w64-mingw32/include/rpcndr.h \
- C:/MinGW/x86_64-w64-mingw32/include/rpcnsip.h \
- C:/MinGW/x86_64-w64-mingw32/include/rpcsal.h \
- C:/MinGW/x86_64-w64-mingw32/include/ole2.h \
- C:/MinGW/x86_64-w64-mingw32/include/objbase.h \
- C:/MinGW/x86_64-w64-mingw32/include/combaseapi.h \
- C:/MinGW/x86_64-w64-mingw32/include/wtypesbase.h \
- C:/MinGW/x86_64-w64-mingw32/include/unknwnbase.h \
- C:/MinGW/x86_64-w64-mingw32/include/objidlbase.h \
- C:/MinGW/x86_64-w64-mingw32/include/cguid.h \
- C:/MinGW/x86_64-w64-mingw32/include/objidl.h \
- C:/MinGW/x86_64-w64-mingw32/include/unknwn.h \
- C:/MinGW/x86_64-w64-mingw32/include/urlmon.h \
- C:/MinGW/x86_64-w64-mingw32/include/oleidl.h \
- C:/MinGW/x86_64-w64-mingw32/include/servprov.h \
- C:/MinGW/x86_64-w64-mingw32/include/msxml.h \
- C:/MinGW/x86_64-w64-mingw32/include/oaidl.h \
- C:/MinGW/x86_64-w64-mingw32/include/propidl.h \
- C:/MinGW/x86_64-w64-mingw32/include/oleauto.h \
- C:/MinGW/x86_64-w64-mingw32/include/winioctl.h \
- C:/MinGW/x86_64-w64-mingw32/include/winsmcrd.h \
- C:/MinGW/x86_64-w64-mingw32/include/winspool.h \
- C:/MinGW/x86_64-w64-mingw32/include/prsht.h \
- C:/MinGW/x86_64-w64-mingw32/include/commdlg.h \
  C:/MinGW/x86_64-w64-mingw32/include/stralign.h \
  C:/MinGW/x86_64-w64-mingw32/include/sec_api/stralign_s.h \
  C:/MinGW/x86_64-w64-mingw32/include/winsvc.h \
@@ -445,4 +389,5 @@ CMakeFiles/server.dir/src/server.cpp.obj: \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/atomic_base.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/atomic_lockfree_defines.h \
  E:/Projects/re-generals/include/map.h \
- E:/Projects/re-generals/include/constants.h
+ E:/Projects/re-generals/include/constants.h \
+ E:/Projects/re-generals/include/raylib/raylib.h

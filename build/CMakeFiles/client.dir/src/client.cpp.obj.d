@@ -1,5 +1,6 @@
 CMakeFiles/client.dir/src/client.cpp.obj: \
  E:\Projects\re-generals\src\client.cpp \
+ E:/Projects/re-generals/include/client.h \
  C:/MinGW/x86_64-w64-mingw32/include/winsock2.h \
  C:/MinGW/x86_64-w64-mingw32/include/_mingw_unicode.h \
  C:/MinGW/x86_64-w64-mingw32/include/windows.h \
@@ -210,7 +211,6 @@ CMakeFiles/client.dir/src/client.cpp.obj: \
  C:/MinGW/x86_64-w64-mingw32/include/fltwinerror.h \
  C:/MinGW/x86_64-w64-mingw32/include/timezoneapi.h \
  C:/MinGW/x86_64-w64-mingw32/include/wingdi.h \
- C:/MinGW/x86_64-w64-mingw32/include/pshpack1.h \
  C:/MinGW/x86_64-w64-mingw32/include/winuser.h \
  C:/MinGW/x86_64-w64-mingw32/include/tvout.h \
  C:/MinGW/x86_64-w64-mingw32/include/winnls.h \
@@ -227,61 +227,6 @@ CMakeFiles/client.dir/src/client.cpp.obj: \
  C:/MinGW/x86_64-w64-mingw32/include/winnetwk.h \
  C:/MinGW/x86_64-w64-mingw32/include/wnnc.h \
  C:/MinGW/x86_64-w64-mingw32/include/virtdisk.h \
- C:/MinGW/x86_64-w64-mingw32/include/cderr.h \
- C:/MinGW/x86_64-w64-mingw32/include/dde.h \
- C:/MinGW/x86_64-w64-mingw32/include/ddeml.h \
- C:/MinGW/x86_64-w64-mingw32/include/dlgs.h \
- C:/MinGW/x86_64-w64-mingw32/include/lzexpand.h \
- C:/MinGW/x86_64-w64-mingw32/include/mmsystem.h \
- C:/MinGW/x86_64-w64-mingw32/include/mmsyscom.h \
- C:/MinGW/x86_64-w64-mingw32/include/mciapi.h \
- C:/MinGW/x86_64-w64-mingw32/include/mmiscapi.h \
- C:/MinGW/x86_64-w64-mingw32/include/mmiscapi2.h \
- C:/MinGW/x86_64-w64-mingw32/include/playsoundapi.h \
- C:/MinGW/x86_64-w64-mingw32/include/mmeapi.h \
- C:/MinGW/x86_64-w64-mingw32/include/timeapi.h \
- C:/MinGW/x86_64-w64-mingw32/include/joystickapi.h \
- C:/MinGW/x86_64-w64-mingw32/include/nb30.h \
- C:/MinGW/x86_64-w64-mingw32/include/rpc.h \
- C:/MinGW/x86_64-w64-mingw32/include/rpcdce.h \
- C:/MinGW/x86_64-w64-mingw32/include/rpcdcep.h \
- C:/MinGW/x86_64-w64-mingw32/include/rpcnsi.h \
- C:/MinGW/x86_64-w64-mingw32/include/rpcnterr.h \
- C:/MinGW/x86_64-w64-mingw32/include/rpcasync.h \
- C:/MinGW/x86_64-w64-mingw32/include/shellapi.h \
- C:/MinGW/x86_64-w64-mingw32/include/winperf.h \
- C:/MinGW/x86_64-w64-mingw32/include/winsock.h \
- C:/MinGW/x86_64-w64-mingw32/include/wincrypt.h \
- C:/MinGW/x86_64-w64-mingw32/include/bcrypt.h \
- C:/MinGW/x86_64-w64-mingw32/include/ncrypt.h \
- C:/MinGW/x86_64-w64-mingw32/include/dpapi.h \
- C:/MinGW/x86_64-w64-mingw32/include/winefs.h \
- C:/MinGW/x86_64-w64-mingw32/include/winscard.h \
- C:/MinGW/x86_64-w64-mingw32/include/wtypes.h \
- C:/MinGW/x86_64-w64-mingw32/include/rpcndr.h \
- C:/MinGW/x86_64-w64-mingw32/include/rpcnsip.h \
- C:/MinGW/x86_64-w64-mingw32/include/rpcsal.h \
- C:/MinGW/x86_64-w64-mingw32/include/ole2.h \
- C:/MinGW/x86_64-w64-mingw32/include/objbase.h \
- C:/MinGW/x86_64-w64-mingw32/include/combaseapi.h \
- C:/MinGW/x86_64-w64-mingw32/include/wtypesbase.h \
- C:/MinGW/x86_64-w64-mingw32/include/unknwnbase.h \
- C:/MinGW/x86_64-w64-mingw32/include/objidlbase.h \
- C:/MinGW/x86_64-w64-mingw32/include/cguid.h \
- C:/MinGW/x86_64-w64-mingw32/include/objidl.h \
- C:/MinGW/x86_64-w64-mingw32/include/unknwn.h \
- C:/MinGW/x86_64-w64-mingw32/include/urlmon.h \
- C:/MinGW/x86_64-w64-mingw32/include/oleidl.h \
- C:/MinGW/x86_64-w64-mingw32/include/servprov.h \
- C:/MinGW/x86_64-w64-mingw32/include/msxml.h \
- C:/MinGW/x86_64-w64-mingw32/include/oaidl.h \
- C:/MinGW/x86_64-w64-mingw32/include/propidl.h \
- C:/MinGW/x86_64-w64-mingw32/include/oleauto.h \
- C:/MinGW/x86_64-w64-mingw32/include/winioctl.h \
- C:/MinGW/x86_64-w64-mingw32/include/winsmcrd.h \
- C:/MinGW/x86_64-w64-mingw32/include/winspool.h \
- C:/MinGW/x86_64-w64-mingw32/include/prsht.h \
- C:/MinGW/x86_64-w64-mingw32/include/commdlg.h \
  C:/MinGW/x86_64-w64-mingw32/include/stralign.h \
  C:/MinGW/x86_64-w64-mingw32/include/sec_api/stralign_s.h \
  C:/MinGW/x86_64-w64-mingw32/include/winsvc.h \
@@ -303,8 +248,51 @@ CMakeFiles/client.dir/src/client.cpp.obj: \
  C:/MinGW/x86_64-w64-mingw32/include/in6addr.h \
  C:/MinGW/x86_64-w64-mingw32/include/psdk_inc/_ip_mreq1.h \
  C:/MinGW/x86_64-w64-mingw32/include/mstcpip.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/iostream \
+ E:/Projects/re-generals/include/render.h \
+ E:/Projects/re-generals/include/raylib/raylib.h \
+ E:/Projects/re-generals/include/raylib/raymath.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/math.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/cmath \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/requires_hosted.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/cpp_type_traits.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/version.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/type_traits \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/ext/type_traits.h \
+ C:/MinGW/x86_64-w64-mingw32/include/math.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/specfun.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_algobase.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/functexcept.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/exception_defines.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/ext/numeric_traits.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_pair.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/move.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/utility.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_iterator_base_types.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_iterator_base_funcs.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/concept_check.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/debug/assertions.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_iterator.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/ptr_traits.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/debug/debug.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/predefined_ops.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bit \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/concepts \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/limits \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/tr1/gamma.tcc \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/tr1/special_function_util.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/tr1/bessel_function.tcc \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/tr1/beta_function.tcc \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/tr1/ell_integral.tcc \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/tr1/exp_integral.tcc \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/tr1/hypergeometric.tcc \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/tr1/legendre_function.tcc \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/tr1/modified_bessel_func.tcc \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/tr1/poly_hermite.tcc \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/tr1/poly_laguerre.tcc \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/tr1/riemann_zeta.tcc \
+ E:/Projects/re-generals/include/constants.h \
+ E:/Projects/re-generals/include/map.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/iostream \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/ostream \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/ostream.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/ios \
@@ -321,15 +309,11 @@ CMakeFiles/client.dir/src/client.cpp.obj: \
  C:/MinGW/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/exception \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/exception.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/version.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/exception_ptr.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/exception_defines.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/cxxabi_init_exception.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/typeinfo \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/hash_bytes.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/new \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/move.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/type_traits \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/nested_exception.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/char_traits.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/localefwd.h \
@@ -351,27 +335,10 @@ CMakeFiles/client.dir/src/client.cpp.obj: \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/allocator.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/new_allocator.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/functexcept.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/cpp_type_traits.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/ostream_insert.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/cxxabi_forced.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_iterator_base_funcs.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/concept_check.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/debug/assertions.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_iterator_base_types.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_iterator.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/ext/type_traits.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/ptr_traits.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_function.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/backward/binders.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/ext/numeric_traits.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_algobase.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_pair.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/utility.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/debug/debug.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/predefined_ops.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bit \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/concepts \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/refwrap.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/invoke.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/range_access.h \
@@ -411,18 +378,33 @@ CMakeFiles/client.dir/src/client.cpp.obj: \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/ostream.tcc \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/istream \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/istream.tcc \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/thread \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/std_thread.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/unique_ptr.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/this_thread_sleep.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/mutex \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/chrono.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/ratio \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/cstdint \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
  C:/MinGW/x86_64-w64-mingw32/include/stdint.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/limits \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/ctime \
  C:/MinGW/x86_64-w64-mingw32/include/time.h \
  C:/MinGW/x86_64-w64-mingw32/include/pthread_time.h \
  C:/MinGW/x86_64-w64-mingw32/include/pthread_compat.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/parse_numbers.h
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/parse_numbers.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/std_mutex.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/unique_lock.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/condition_variable \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/shared_ptr.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/shared_ptr_base.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/allocated_ptr.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/unique_ptr.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/ext/aligned_buffer.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/ext/concurrence.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/thread \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/std_thread.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/this_thread_sleep.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/atomic \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/atomic_base.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/atomic_lockfree_defines.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/deque \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_uninitialized.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_deque.h \
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/deque.tcc

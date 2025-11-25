@@ -165,6 +165,30 @@ src/client.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/src/client.cpp.s
 .PHONY : src/client.cpp.s
 
+src/map.obj: src/map.cpp.obj
+.PHONY : src/map.obj
+
+# target to build an object file
+src/map.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/src/map.cpp.obj
+.PHONY : src/map.cpp.obj
+
+src/map.i: src/map.cpp.i
+.PHONY : src/map.i
+
+# target to preprocess a source file
+src/map.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/src/map.cpp.i
+.PHONY : src/map.cpp.i
+
+src/map.s: src/map.cpp.s
+.PHONY : src/map.s
+
+# target to generate assembly for a file
+src/map.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/src/map.cpp.s
+.PHONY : src/map.cpp.s
+
 src/server.obj: src/server.cpp.obj
 .PHONY : src/server.obj
 
@@ -202,6 +226,9 @@ help:
 	@echo ... src/client.obj
 	@echo ... src/client.i
 	@echo ... src/client.s
+	@echo ... src/map.obj
+	@echo ... src/map.i
+	@echo ... src/map.s
 	@echo ... src/server.obj
 	@echo ... src/server.i
 	@echo ... src/server.s

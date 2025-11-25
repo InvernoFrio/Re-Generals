@@ -10,5 +10,11 @@
   "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/server.dir/includes_CXX.rsp -g -o CMakeFiles\\server.dir\\src\\server.cpp.obj -c E:\\Projects\\re-generals\\src\\server.cpp",
   "file": "E:/Projects/re-generals/src/server.cpp",
   "output": "CMakeFiles/server.dir/src/server.cpp.obj"
+},
+{
+  "directory": "E:/Projects/re-generals/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/server.dir/includes_CXX.rsp -g -o CMakeFiles\\server.dir\\src\\map.cpp.obj -c E:\\Projects\\re-generals\\src\\map.cpp",
+  "file": "E:/Projects/re-generals/src/map.cpp",
+  "output": "CMakeFiles/server.dir/src/map.cpp.obj"
 }
 ]

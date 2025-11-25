@@ -1,6 +1,7 @@
 #ifndef _CONSTANTS_H_
 #define _CONSTANTS_H_
 
+#include"raylib/raylib.h"
 constexpr int INF = 0x3f3f3f3f;
 
 constexpr char PROJECT_NAME[] = "Re-Generals";
@@ -47,7 +48,7 @@ constexpr int SQUARE_SIZE = 100;
 constexpr int DEFAULT_SCREEN_WIDTH = 800;
 constexpr int DEFAULT_SCREEN_HEIGHT = 600;
 constexpr int DEFAULT_FPS = 60;
-constexpr int DEFAULT_PLAYER_NUMBER = 2;
+constexpr int DEFAULT_PLAYER_NUMBER = 1;
 constexpr int DEFAULT_BOT_NUMBER = 3;
 constexpr int DEFAULT_MAP_WIDTH = 20;
 constexpr int DEFAULT_MAP_HEIGHT = 20;
@@ -58,11 +59,11 @@ constexpr int DEFAULT_CITY_NUMBER = 20;
 constexpr int SPECTATOR = 0;
 constexpr int PLAYER = 1;
 
-// constexpr Color BACKGUROND_COLOR = Color{ 34,34,34,255 };
-// constexpr Color FOG_COLOR = Color{ 57,57,57,255 };
-// constexpr Color DEFAULT_COLOR_LAND = Color{ 220,220,220,255 };
-// constexpr Color DEFAULT_COLOR_MOUNTAIN = Color{ 187,187,187,255 };
-// constexpr Color DEFAULT_COLOR_CITY = Color{ 128,128,128,255 };
+constexpr Color BACKGUROND_COLOR = Color{ 34,34,34,255 };
+constexpr Color FOG_COLOR = Color{ 57,57,57,255 };
+constexpr Color DEFAULT_COLOR_LAND = Color{ 220,220,220,255 };
+constexpr Color DEFAULT_COLOR_MOUNTAIN = Color{ 187,187,187,255 };
+constexpr Color DEFAULT_COLOR_CITY = Color{ 128,128,128,255 };
 
 
 enum SquareType {
@@ -82,7 +83,10 @@ constexpr float FONT_SIZE = 40;
 struct Movement {
     int id, x, y, dir;
 };
+struct Pos {
+    int x, y;
+};
 
-// constexpr Color color_pool[12] = { (Color) { 250,2,9,255 },(Color) { 68,144,253,255 }, (Color) { 8,128,12 ,255 },(Color) { 26,128,128,255 },(Color) { 245,141,21,255 },(Color) { 238,44,228 ,255 },(Color) { 127,0,127 ,255 },(Color) { 152,1,4 ,255 },(Color) { 176,173,56 ,255 },(Color) { 151,94,39 ,255 },(Color) { 57,40,253 ,255 },(Color) { 93,74,164 ,255 } };
+constexpr Color color_pool[12] = { (Color) { 250,2,9,255 },(Color) { 68,144,253,255 }, (Color) { 8,128,12 ,255 },(Color) { 26,128,128,255 },(Color) { 245,141,21,255 },(Color) { 238,44,228 ,255 },(Color) { 127,0,127 ,255 },(Color) { 152,1,4 ,255 },(Color) { 176,173,56 ,255 },(Color) { 151,94,39 ,255 },(Color) { 57,40,253 ,255 },(Color) { 93,74,164 ,255 } };
 
 #endif

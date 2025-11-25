@@ -3,21 +3,33 @@
 
 // #include"raylib/raylib.h"
 #include"constants.h"
+#include<iostream>
 
 struct Square {
     int id;
     // Color color;
-    short num;
+    int num;
+    int type; // 0: land, 1: mountain, 2: city, 3: general, 4: obstacle
+};
+struct MapDataHeader {
+    int type;
+    int height;
+    int width;
+    size_t datasize;
+    time_t timestamp;
 };
 class Map {
 private:
     Square data[DEFAULT_MAP_HEIGHT][DEFAULT_MAP_WIDTH];
     int height, width;
 public:
-    void init();
+    void init(int player_number = DEFAULT_PLAYER_NUMBER, int mountain_number = DEFAULT_MOUNTAIN_NUMBER, int city_number = DEFAULT_CITY_NUMBER);
     Square& getSquare(int x, int y) { return data[x][y]; }
     void setHeight(int h) { height = h; }
     void setWidth(int w) { width = w; }
+    int getHeight() { return height; }
+    int getWidth() { return width; }
+    Square* getData() { return &data[0][0]; }
 };
 
 

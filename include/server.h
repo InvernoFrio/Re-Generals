@@ -8,20 +8,31 @@
 #include <thread>
 #include <mutex>
 #include <vector>
-#include<atomic>
+#include <atomic>
 #include "map.h"
 
 class Server {
 private:
     SOCKET server_socket;
     WSADATA wsa_data;
-    Map map;
-    std::vector<std::thread> client_threads;
-    std::chrono::time_point<std::chrono::high_resolution_clock> start_time;
-    std::thread game_thread;
+    struct ClientInfo {
+        SOCKET sock = INVALID_SOCKET;
+        sockaddr_in addr{};
+        std::atomic<bool> alive{ false };
+        std::thread th;
+        int id;
+    };
+
+    std::vector<std::shared_ptr<ClientInfo>> clients;
     std::mutex client_threads_mutex;
+
+    int rounds = 0, frame_count = 0;
+    int speed = 60; // Frames per second
+    Map map;
     std::atomic<bool> running;
     std::vector<Movement> movements;
+    std::chrono::time_point<std::chrono::high_resolution_clock> start_time;
+    void cleanup_clients();
 
 public:
     Server() : server_socket(INVALID_SOCKET) {}
@@ -29,10 +40,14 @@ public:
     bool initialize();
     bool start(int port);
     void run();
-    void handle_client(SOCKET client_socket, sockaddr_in client_addr);
+    void handle_client(SOCKET client_socket, sockaddr_in client_addr, int client_id);
+
+    void handleInput(const char* data, int length, int client_id);
 
     void startGame();
+    void initMap();
     void updateGame();
+    void* prepareMapdata(int& total_size);
 
     ~Server();
 };

@@ -8,7 +8,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 set(CLIENT_SRC
     src/client.cpp)
 set(SERVER_SRC
-    src/server.cpp)
+    src/server.cpp
+    src/map.cpp)
     
 include_directories(include)
 add_executable(client ${CLIENT_SRC})

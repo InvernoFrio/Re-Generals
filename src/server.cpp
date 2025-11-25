@@ -1,3 +1,10 @@
+#define WIN32_LEAN_AND_MEAN
+#define NOGDI
+#define NOUSER
+#define NOKERNEL
+#define NOSOUND
+#define NOMINMAX
+
 #include "server.h"
 
 bool Server::initialize() {
@@ -60,64 +67,225 @@ void Server::run() {
             continue;
         }
 
-        // 处理客户端
-        client_threads.push_back(std::thread(&Server::handle_client, this, client_socket, client_addr));
-        std::cout << "Client connected, total clients: " << client_threads.size() << std::endl;
-        if (running.load() == false && client_threads.size() == DEFAULT_PLAYER_NUMBER) {
+        // 处理客户端：把 socket 与对应线程放入同一 ClientInfo 结构中
+        auto client = std::make_shared<Server::ClientInfo>();
+        client->sock = client_socket;
+        client->addr = client_addr;
+        client->alive.store(true);
+        // 启动线程并在结束时将 alive 标记为 false
+        client->id = clients.size() + 1;
+        client->th = std::thread(&Server::handle_client, this, client->sock, client->addr, client->id);
+        std::cout << "SHIT" << std::endl;
+        {
+            std::lock_guard<std::mutex> lk(client_threads_mutex);
+            clients.push_back(client);
+            // 清理已结束的客户端（join 并移除）
+            cleanup_clients();
+        }
+
+        //人数够则开始游戏
+        if (running.load() == false && clients.size() == DEFAULT_PLAYER_NUMBER) {
             startGame();
-            running.store(true);
-            std::cout << "Game started." << std::endl;
+            running.store(false);
         }
     }
 }
-void Server::handle_client(SOCKET client_socket, sockaddr_in client_addr) {
+void Server::handle_client(SOCKET client_socket, sockaddr_in client_addr, int client_id) {
+    try {
+        char client_ip[INET_ADDRSTRLEN];
+        inet_ntop(AF_INET, &client_addr.sin_addr, client_ip, INET_ADDRSTRLEN);
+        std::cout << "Client connected: " << client_ip << std::endl;
 
-    char client_ip[INET_ADDRSTRLEN];
-    inet_ntop(AF_INET, &client_addr.sin_addr, client_ip, INET_ADDRSTRLEN);
-    std::cout << "Client connected: " << client_ip << std::endl;
+        // 简单的回显服务
+        char receiveDataBuffer[1024];
+        int bytes_received;
 
-    // 简单的回显服务
-    char buffer[1024];
-    int bytes_received;
 
-    // 阻塞直到服务器开始运行（running == true）
-    while (!running.load(std::memory_order_acquire)) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(16));
+        // 阻塞直到服务器开始运行（running == true）
+        while (!running.load(std::memory_order_acquire)) {
+            std::this_thread::sleep_for(std::chrono::milliseconds(16));
+        }
+
+        while (running.load() && (bytes_received = recv(client_socket, receiveDataBuffer, sizeof(receiveDataBuffer), 0)) >= 0) {
+            if (bytes_received == SOCKET_ERROR) {
+                int err = WSAGetLastError();
+                std::cerr << "Recv failed: " << err << std::endl;
+                break;
+            }
+            if (bytes_received == 0) break;
+            handleInput(receiveDataBuffer, bytes_received, client_id);
+
+            int bytes_sent = 0;
+            void* sendbuffer = prepareMapdata(bytes_sent);
+            send(client_socket, static_cast<char*>(sendbuffer), bytes_sent, 0);
+            delete[] static_cast<char*>(sendbuffer);
+        }
+
+        std::cout << "Client disconnected: " << client_ip << std::endl;
+        closesocket(client_socket);
     }
-
-    while (running.load() && (bytes_received = recv(client_socket, buffer, sizeof(buffer), 0))) {
-        std::cout << "Received from " << client_ip << ": "
-            << std::string(buffer, bytes_received) << std::endl;
-        // 回显数据
-        send(client_socket, buffer, bytes_received, 0);
-        std::this_thread::sleep_until(start_time + std::chrono::milliseconds(16));
+    catch (const std::exception& e) {
+        std::cerr << "Exception in handle_client: " << e.what() << std::endl;
+        try { closesocket(client_socket); }
+        catch (...) {}
     }
+    catch (...) {
+        std::cerr << "Unknown exception in handle_client" << std::endl;
+        try { closesocket(client_socket); }
+        catch (...) {}
+    }
+}
+void* Server::prepareMapdata(int& total_size) {
+    total_size = sizeof(MapDataHeader) + map.getHeight() * map.getWidth() * sizeof(Square);
+    MapDataHeader header;
+    header.type = 1; // 假设 1 代表地图数据
+    header.height = map.getHeight();
+    header.width = map.getWidth();
+    header.datasize = map.getHeight() * map.getWidth() * sizeof(Square);
+    header.timestamp = std::time(nullptr);
 
-    std::cout << "Client disconnected: " << client_ip << std::endl;
-    closesocket(client_socket);
+    char* buffer = new char[total_size];
+    memcpy(buffer, &header, sizeof(MapDataHeader));
+    memcpy(buffer + sizeof(MapDataHeader), map.getData(), header.datasize);
+
+    return buffer;
+}
+void Server::handleInput(const char* data, int length, int client_id) {
+    // 处理客户端输入的数据
+    ClientInfo& client = *clients[client_id - 1];
+    std::string input(data, length);
+    std::cout << "Handling input from client " << client_id << ": " << input << std::endl;
+    // send(client.sock, data, length, 0);
+    // 这里可以根据协议解析数据并更新游戏状态
+}
+void Server::cleanup_clients() {
+    // 必须持有 client_threads_mutex
+    std::lock_guard<std::mutex> lk(client_threads_mutex);
+    for (auto it = clients.begin(); it != clients.end(); ) {
+        auto& c = *it;
+        if (!c->alive.load()) {
+            if (c->th.joinable()) c->th.join();
+            if (c->sock != INVALID_SOCKET) {
+                closesocket(c->sock);
+                c->sock = INVALID_SOCKET;
+            }
+            it = clients.erase(it);
+        }
+        else {
+            ++it;
+        }
+    }
 }
 void Server::updateGame() {
+    // while (running.load()) {
+        //     start_time = std::chrono::high_resolution_clock::now();
+        //     std::this_thread::sleep_until(start_time + std::chrono::milliseconds(16));
+        // }
+}
+// while (running.load()) {
+    //     frame_count++;
+    //     if (frame_count % (speed / 2) == 0 && frame_count != 0)rounds++;
+    //     else continue;
+    //     start_time = std::chrono::high_resolution_clock::now();
+
+    //     // 处理游戏逻辑
+    //     //加一
+    //     for (int i = 0; i < map.getHeight(); ++i) {
+        //         for (int j = 0; j < map.getWidth(); ++j) {
+            //             Square& now = map.getSquare(i, j);
+            //             if (now.id == 0)continue;
+            //             if (now.type == TYPE_LAND && rounds % 50 == 0) {
+                //                 now.num += 1; // 土地加一
+                //             }
+                //             if ((now.type == TYPE_CITY || now.type == TYPE_GENERAL) && rounds % 2 == 0) {
+                    //                 now.num += 1; // 城市和王城加一
+                    //             }
+                    //         }
+                    //     }
+
+                    //     // 处理移动逻辑
+                    //     for (const auto& move : movements) {
+                        //         if (move.dir == NO_ARROW)continue;
+                        //         int x = move.x, y = move.y;
+                        //         int tox = move.x + dx[move.dir - ARROWUP];
+                        //         int toy = move.y + dy[move.dir - ARROWUP];
+                        //         Square& now = map.getSquare(x, y);
+                        //         Square& to = map.getSquare(tox, toy);
+                        //         if (move.id != now.id) {
+                            //             continue;
+                            //         }
+                            //         if (to.type == TYPE_MOUNTAIN) {
+                                //             continue;
+                                //         }
+                                //         if (to.id == now.id) {//同类合并
+                                //             to.num += now.num - 1;
+                                //             now.num = 1;
+                                //             continue;
+                                //         }
+                                //         if (to.num - (now.num - 1) >= 0) {//异类防守成功
+                                //             to.num -= now.num - 1;
+                                //             now.num = 1;
+                                //         }
+                                //         else {//异类防守失败，被攻占
+                                //             to.type = now.type;
+                                //             to.num = now.num - 1 - to.num;
+                                //             to.id = now.id;
+                                //             now.num = 1;
+                                //         }
+                                //     }
+                                //     movements.clear();
+
+                                //     // 发送状态给客户端
+                                //     // 这里可以实现将游戏状态发送给所有连接的客户端的逻辑
+
+                                //     // 控制更新频率为约60 FPS
+                                //     std::this_thread::sleep_until(start_time + std::chrono::milliseconds(16));
+                                // }
+void Server::startGame() {
+    initMap();
+    rounds = 0, frame_count = 0;
+    std::cout << "Game started." << std::endl;
+    running.store(true);
+    initMap();
     while (running.load()) {
-        start_time = std::chrono::high_resolution_clock::now();
-        std::this_thread::sleep_until(start_time + std::chrono::milliseconds(16));
+        updateGame();
+        if (clients.size() == 0) {
+            running.store(false);
+            break;
+        }
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+        cleanup_clients();
     }
 }
-void Server::startGame() {
-    game_thread = std::thread(&Server::updateGame, this);
+void Server::initMap() {
+    map.setHeight(DEFAULT_MAP_HEIGHT);
+    map.setWidth(DEFAULT_MAP_WIDTH);
+    map.init(DEFAULT_PLAYER_NUMBER, DEFAULT_MOUNTAIN_NUMBER, DEFAULT_CITY_NUMBER);
 }
 Server::~Server() {
+    // signal stop and shutdown server socket to unblock accept/recv
+    running.store(false);
     if (server_socket != INVALID_SOCKET) {
+        shutdown(server_socket, SD_BOTH);
         closesocket(server_socket);
+        server_socket = INVALID_SOCKET;
     }
-    for (auto& thread : client_threads) {
-        if (thread.joinable()) {
-            thread.join();
+
+    for (auto& client : clients) {
+        client->alive.store(false);
+        if (client->sock != INVALID_SOCKET) {
+            shutdown(client->sock, SD_BOTH);
+            closesocket(client->sock);
+            client->sock = INVALID_SOCKET;
+        }
+        if (client->th.joinable()) {
+            try { client->th.join(); }
+            catch (const std::exception& e) { std::cerr << "Exception joining client thread: " << e.what() << std::endl; }
+            catch (...) { std::cerr << "Unknown exception joining client thread" << std::endl; }
         }
     }
-    if (game_thread.joinable()) {
-        game_thread.join();
-    }
-    client_threads.clear();
+
+    clients.clear();
     WSACleanup();
 }
 

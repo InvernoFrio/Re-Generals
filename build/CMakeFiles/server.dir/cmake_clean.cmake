@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/server.dir/src/map.cpp.obj"
+  "CMakeFiles/server.dir/src/map.cpp.obj.d"
   "CMakeFiles/server.dir/src/server.cpp.obj"
   "CMakeFiles/server.dir/src/server.cpp.obj.d"
   "E:/Projects/re-generals/bin/server.exe"
