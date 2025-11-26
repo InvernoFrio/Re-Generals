@@ -12,6 +12,7 @@ void Map::init(int player_number, int mountain_number, int city_number) {
             data[i][j].id = 0;
             data[i][j].num = 0;
             data[i][j].type = TYPE_LAND; // 陆地
+            data[i][j].color = DEFAULT_COLOR_LAND;
         }
     }
 
@@ -28,6 +29,7 @@ void Map::init(int player_number, int mountain_number, int city_number) {
             y = dis_width(gen);
         } while (data[x][y].type != TYPE_LAND); // 确保该位置是陆地
         data[x][y].type = TYPE_MOUNTAIN; // 山脉
+        data[x][y].color = DEFAULT_COLOR_MOUNTAIN;
     }
 
     // 随机生成城市
@@ -38,6 +40,7 @@ void Map::init(int player_number, int mountain_number, int city_number) {
             y = dis_width(gen);
         } while (data[x][y].type != TYPE_LAND); // 确保该位置是陆地
         data[x][y].type = TYPE_CITY;// 城市
+        data[x][y].color = DEFAULT_COLOR_CITY;
     }
 
     // 随机生成将军位置
@@ -50,5 +53,6 @@ void Map::init(int player_number, int mountain_number, int city_number) {
         data[x][y].type = TYPE_GENERAL; // 将军
         data[x][y].id = p;   // 玩家ID
         data[x][y].num = 1;  // 初始士兵数
+        data[x][y].color = DEFAULT_PLAYER_COLORS[p - 1];
     }
 }

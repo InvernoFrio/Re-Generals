@@ -40,9 +40,9 @@ bool Client::connect_to_server(const std::string& host, int port) {
     return true;
 }
 
-void Client::run() {
+void Client::handleServerCommunication() {
     std::string input = "Require map data";
-    char buffer[5000];
+    char buffer[10240];
     while (true) {
 
         // std::cout << "Enter message (or 'quit' to exit): ";
@@ -61,13 +61,13 @@ void Client::run() {
         int bytes_received = recv(client_socket, buffer, sizeof(buffer) - 1, 0);
         if (bytes_received > 0) {
             recieveData(buffer, bytes_received);
-            for (int i = 0;i < DEFAULT_MAP_HEIGHT;i++) {
-                for (int j = 0;j < DEFAULT_MAP_WIDTH;j++) {
-                    Square& sq = map.getSquare(i, j);
-                    std::cout << sq.num << " ";
-                }
-                std::cout << std::endl;
-            }
+            // for (int i = 0;i < DEFAULT_MAP_HEIGHT;i++) {
+            //     for (int j = 0;j < DEFAULT_MAP_WIDTH;j++) {
+            //         Square& sq = map.getSquare(i, j);
+            //         std::cout << sq.num << " ";
+            //     }
+            //     std::cout << std::endl;
+            // }
         }
         else if (bytes_received == 0) {
             std::cout << "Server closed connection" << std::endl;
@@ -133,8 +133,12 @@ Client::~Client() {
     }
     WSACleanup();
 }
+Map* Client::getMap() {
+    return &map;
+}
 int main() {
     Client client;
+    Render render;
 
     if (!client.initialize()) {
         std::cerr << "WSAStartup failed" << std::endl;
@@ -145,6 +149,9 @@ int main() {
         return 1;
     }
 
-    client.run();
+    client.network_thread = std::thread(&Client::handleServerCommunication, &client);
+    render.init(1, client.getMap());
+    render.draw();
+    client.network_thread.join();
     return 0;
 }

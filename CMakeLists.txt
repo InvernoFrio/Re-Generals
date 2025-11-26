@@ -6,7 +6,9 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
 
 set(CLIENT_SRC
-    src/client.cpp)
+    src/client.cpp
+    src/map.cpp
+    src/render.cpp)
 set(SERVER_SRC
     src/server.cpp
     src/map.cpp)

@@ -1,6 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/client.dir/src/client.cpp.obj"
   "CMakeFiles/client.dir/src/client.cpp.obj.d"
+  "CMakeFiles/client.dir/src/map.cpp.obj"
+  "CMakeFiles/client.dir/src/map.cpp.obj.d"
+  "CMakeFiles/client.dir/src/render.cpp.obj"
+  "CMakeFiles/client.dir/src/render.cpp.obj.d"
   "E:/Projects/re-generals/bin/client.exe"
   "E:/Projects/re-generals/bin/client.exe.manifest"
   "E:/Projects/re-generals/bin/client.pdb"

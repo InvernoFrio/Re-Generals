@@ -6,29 +6,31 @@
 #include"map.h"
 #include<mutex>
 #include<atomic>
+#include<algorithm>
+#include<map>
+
 
 
 class Render {
 private:
     int id;
 public:
-    std::atomic<bool>current_write{ 0 };
-    std::atomic<bool>current_read{ 1 };
     Camera2D camera;
     int last_screen_height, last_screen_width;
     bool is_dragging;
     Vector2 camera_last_pos;
     Map* map_ptr;
     std::mutex mtx;
+    std::map<int, Texture2D>textures;
+    Font font;
+    Pos selected_square{ -1,-1 };
 
 public:
     void init(int id, Map* map_ptr);
-    void render();
+    void draw();
     void drawUI();
     void drawMap();
     void initCamera();
-
-    char getInput();
 
     void handleCameraInput();
     void resetCamera();
@@ -36,6 +38,9 @@ public:
     void updateCamera();
 
     void updateCameraOffset();
+    void drawScaledTexture(Texture2D texture, Rectangle square);
+    void drawCentredText(const char* text, Rectangle square, float factor);
+    Color brightness(Color base_color, float factor);
     ~Render();
 };
 

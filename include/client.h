@@ -10,7 +10,6 @@
 #include <winsock2.h>
 #include <ws2tcpip.h>
 
-#include"render.h"
 #include "map.h"
 #include"constants.h"
 #include <iostream>
@@ -19,6 +18,7 @@
 #include <thread>
 #include <mutex>
 #include <deque>
+#include"render.h"
 
 class Client {
 private:
@@ -26,24 +26,24 @@ private:
     int speed = 2; // Updates per second
     SOCKET client_socket;
     WSADATA wsa_data;
-    // Render render;
     Map map;
     std::atomic<bool> running;
     std::mutex map_lock;
-    std::thread network_thread;
     std::chrono::high_resolution_clock::time_point last_update_time;
 
     std::deque<Movement> movements;
 
 public:
+    std::thread network_thread;
     Client() : client_socket(INVALID_SOCKET) {}
     bool initialize();
 
     bool connect_to_server(const std::string& host, int port);
-    void run();
+    void handleServerCommunication();
     void update();
     void recieveData(const void* data, int length);
 
+    Map* getMap();
     void handleNetwork();
 
     ~Client();

@@ -170,6 +170,7 @@ src/map.obj: src/map.cpp.obj
 
 # target to build an object file
 src/map.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/src/map.cpp.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/src/map.cpp.obj
 .PHONY : src/map.cpp.obj
 
@@ -178,6 +179,7 @@ src/map.i: src/map.cpp.i
 
 # target to preprocess a source file
 src/map.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/src/map.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/src/map.cpp.i
 .PHONY : src/map.cpp.i
 
@@ -186,8 +188,33 @@ src/map.s: src/map.cpp.s
 
 # target to generate assembly for a file
 src/map.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/src/map.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\server.dir\build.make CMakeFiles/server.dir/src/map.cpp.s
 .PHONY : src/map.cpp.s
+
+src/render.obj: src/render.cpp.obj
+.PHONY : src/render.obj
+
+# target to build an object file
+src/render.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/src/render.cpp.obj
+.PHONY : src/render.cpp.obj
+
+src/render.i: src/render.cpp.i
+.PHONY : src/render.i
+
+# target to preprocess a source file
+src/render.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/src/render.cpp.i
+.PHONY : src/render.cpp.i
+
+src/render.s: src/render.cpp.s
+.PHONY : src/render.s
+
+# target to generate assembly for a file
+src/render.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/src/render.cpp.s
+.PHONY : src/render.cpp.s
 
 src/server.obj: src/server.cpp.obj
 .PHONY : src/server.obj
@@ -229,6 +256,9 @@ help:
 	@echo ... src/map.obj
 	@echo ... src/map.i
 	@echo ... src/map.s
+	@echo ... src/render.obj
+	@echo ... src/render.i
+	@echo ... src/render.s
 	@echo ... src/server.obj
 	@echo ... src/server.i
 	@echo ... src/server.s

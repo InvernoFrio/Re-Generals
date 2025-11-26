@@ -8,9 +8,9 @@
 
 struct Square {
     int id;
-    // Color color;
+    Color color;
     int num;
-    int type; // 0: land, 1: mountain, 2: city, 3: general, 4: obstacle
+    int type;
 };
 struct MapDataHeader {
     int type;

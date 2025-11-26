@@ -9,6 +9,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "E:/Projects/re-generals/src/client.cpp" "CMakeFiles/client.dir/src/client.cpp.obj" "gcc" "CMakeFiles/client.dir/src/client.cpp.obj.d"
+  "E:/Projects/re-generals/src/map.cpp" "CMakeFiles/client.dir/src/map.cpp.obj" "gcc" "CMakeFiles/client.dir/src/map.cpp.obj.d"
+  "E:/Projects/re-generals/src/render.cpp" "CMakeFiles/client.dir/src/render.cpp.obj" "gcc" "CMakeFiles/client.dir/src/render.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
