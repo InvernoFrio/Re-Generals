@@ -61,6 +61,9 @@
         "condition_variable": "cpp",
         "mutex": "cpp",
         "raylib.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "chrono": "cpp",
+        "iomanip": "cpp",
+        "sstream": "cpp"
     }
 }

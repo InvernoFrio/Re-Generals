@@ -4,6 +4,7 @@
 // #include"raylib/raylib.h"
 #include"constants.h"
 #include<iostream>
+#include<chrono>
 
 struct Square {
     int id;
@@ -16,7 +17,7 @@ struct MapDataHeader {
     int height;
     int width;
     size_t datasize;
-    time_t timestamp;
+    std::chrono::high_resolution_clock::time_point timestamp;
 };
 class Map {
 private:

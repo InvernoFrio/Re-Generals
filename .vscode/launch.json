@@ -28,11 +28,7 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "Build",
-            "logging": {
-                "engineLogging": true,
-                "trace": true
-            }
+            "preLaunchTask": "Build"
         },
         {
             "name": "GDB Debug Client",
@@ -58,11 +54,7 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "Build",
-            "logging": {
-                "engineLogging": true,
-                "trace": true
-            }
+            "preLaunchTask": "Build"
         },
     ],
     "compounds": [

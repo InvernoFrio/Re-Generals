@@ -11,7 +11,7 @@ void Map::init(int player_number, int mountain_number, int city_number) {
         for (int j = 0; j < width; j++) {
             data[i][j].id = 0;
             data[i][j].num = 0;
-            data[i][j].type = 0; // 陆地
+            data[i][j].type = TYPE_LAND; // 陆地
         }
     }
 
@@ -26,7 +26,7 @@ void Map::init(int player_number, int mountain_number, int city_number) {
         do {
             x = dis_height(gen);
             y = dis_width(gen);
-        } while (data[x][y].type != 0); // 确保该位置是陆地
+        } while (data[x][y].type != TYPE_LAND); // 确保该位置是陆地
         data[x][y].type = TYPE_MOUNTAIN; // 山脉
     }
 
@@ -36,7 +36,7 @@ void Map::init(int player_number, int mountain_number, int city_number) {
         do {
             x = dis_height(gen);
             y = dis_width(gen);
-        } while (data[x][y].type != 0); // 确保该位置是陆地
+        } while (data[x][y].type != TYPE_LAND); // 确保该位置是陆地
         data[x][y].type = TYPE_CITY;// 城市
     }
 
@@ -46,8 +46,8 @@ void Map::init(int player_number, int mountain_number, int city_number) {
         do {
             x = dis_height(gen);
             y = dis_width(gen);
-        } while (data[x][y].type != 0); // 确保该位置是陆地
-        data[x][y].type = 3; // 将军
+        } while (data[x][y].type != TYPE_LAND); // 确保该位置是陆地
+        data[x][y].type = TYPE_GENERAL; // 将军
         data[x][y].id = p;   // 玩家ID
         data[x][y].num = 1;  // 初始士兵数
     }

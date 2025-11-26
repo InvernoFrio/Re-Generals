@@ -136,6 +136,7 @@ CMakeFiles/client.dir/src/client.cpp.obj: E:/Projects/re-generals/src/client.cpp
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/version.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/cctype \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/cerrno \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/chrono \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/clocale \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/cmath \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/concepts \
@@ -811,6 +812,8 @@ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/version.h:
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/cctype:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/cerrno:
+
+C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/chrono:
 
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/clocale:
 

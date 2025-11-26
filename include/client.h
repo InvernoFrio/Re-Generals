@@ -23,11 +23,15 @@
 class Client {
 private:
     int id;
+    int speed = 2; // Updates per second
     SOCKET client_socket;
     WSADATA wsa_data;
     // Render render;
     Map map;
+    std::atomic<bool> running;
+    std::mutex map_lock;
     std::thread network_thread;
+    std::chrono::high_resolution_clock::time_point last_update_time;
 
     std::deque<Movement> movements;
 

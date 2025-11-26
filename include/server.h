@@ -23,13 +23,16 @@ private:
         int id;
     };
 
+    std::atomic<bool> running;
+
     std::vector<std::shared_ptr<ClientInfo>> clients;
     std::mutex client_threads_mutex;
 
-    int rounds = 0, frame_count = 0;
-    int speed = 60; // Frames per second
+    std::thread logic_thread;
+
+    int rounds = 0;
+    int speed = 2; // Updates per second
     Map map;
-    std::atomic<bool> running;
     std::vector<Movement> movements;
     std::chrono::time_point<std::chrono::high_resolution_clock> start_time;
     void cleanup_clients();
@@ -40,9 +43,13 @@ public:
     bool initialize();
     bool start(int port);
     void run();
+    void clear();
+    void acceptClientConnections();
     void handle_client(SOCKET client_socket, sockaddr_in client_addr, int client_id);
 
     void handleInput(const char* data, int length, int client_id);
+
+    void draw();
 
     void startGame();
     void initMap();

@@ -41,12 +41,12 @@ bool Client::connect_to_server(const std::string& host, int port) {
 }
 
 void Client::run() {
-    std::string input;
+    std::string input = "Require map data";
     char buffer[5000];
     while (true) {
 
-        std::cout << "Enter message (or 'quit' to exit): ";
-        std::getline(std::cin, input);
+        // std::cout << "Enter message (or 'quit' to exit): ";
+        // std::getline(std::cin, input);
 
         if (input == "quit") {
             break;
@@ -64,7 +64,7 @@ void Client::run() {
             for (int i = 0;i < DEFAULT_MAP_HEIGHT;i++) {
                 for (int j = 0;j < DEFAULT_MAP_WIDTH;j++) {
                     Square& sq = map.getSquare(i, j);
-                    std::cout << sq.type << " ";
+                    std::cout << sq.num << " ";
                 }
                 std::cout << std::endl;
             }
@@ -77,6 +77,7 @@ void Client::run() {
             std::cerr << "Recv failed: " << WSAGetLastError() << std::endl;
             break;
         }
+        std::this_thread::sleep_until(last_update_time + std::chrono::milliseconds(1000 / speed));
     }
 }
 void Client::recieveData(const void* data, int length) {
@@ -90,6 +91,8 @@ void Client::recieveData(const void* data, int length) {
         std::cerr << "Unknown data type received: " << header->type << std::endl;
         return;
     }
+
+    last_update_time = header->timestamp;
 
     int expected_size = sizeof(MapDataHeader) + header->datasize;
     if (length < expected_size) {
