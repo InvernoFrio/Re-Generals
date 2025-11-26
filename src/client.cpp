@@ -1,6 +1,8 @@
 #include "client.h"
 
 bool  Client::initialize() {
+    running.store(false);
+    closed.store(false);
     return WSAStartup(MAKEWORD(2, 2), &wsa_data) == 0;
 }
 
@@ -44,30 +46,31 @@ void Client::handleServerCommunication() {
     std::string input = "Require map data";
     char buffer[10240];
     while (true) {
-
-        // std::cout << "Enter message (or 'quit' to exit): ";
-        // std::getline(std::cin, input);
-
-        if (input == "quit") {
-            break;
-        }
-
-        // 发送数据
-        if (send(client_socket, input.c_str(), input.length(), 0) == SOCKET_ERROR) {
+        if (closed.load())break;
+        // 发送请求
+        if (running.load() && send(client_socket, input.c_str(), input.length(), 0) == SOCKET_ERROR) {
             std::cerr << "Send failed: " << WSAGetLastError() << std::endl;
             break;
         }
 
         int bytes_received = recv(client_socket, buffer, sizeof(buffer) - 1, 0);
         if (bytes_received > 0) {
-            recieveData(buffer, bytes_received);
-            // for (int i = 0;i < DEFAULT_MAP_HEIGHT;i++) {
-            //     for (int j = 0;j < DEFAULT_MAP_WIDTH;j++) {
-            //         Square& sq = map.getSquare(i, j);
-            //         std::cout << sq.num << " ";
-            //     }
-            //     std::cout << std::endl;
-            // }
+            int type = 0;
+            if (bytes_received >= static_cast<int>(sizeof(int)))type = *reinterpret_cast<const int*>(buffer);
+            if (running.load() == false) {
+                if (type == 3) {
+                    running.store(true);
+                    recieveStartData(static_cast<const void*>(&buffer), bytes_received);
+                }
+                else {
+                    std::cout << "Waiting for game start message..." << std::endl;
+                    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+                    return;
+                }
+            }
+            else {
+                if (type == 1)recieveMapData(static_cast<const void*>(&buffer), bytes_received);
+            }
         }
         else if (bytes_received == 0) {
             std::cout << "Server closed connection" << std::endl;
@@ -80,7 +83,25 @@ void Client::handleServerCommunication() {
         std::this_thread::sleep_until(last_update_time + std::chrono::milliseconds(1000 / speed));
     }
 }
-void Client::recieveData(const void* data, int length) {
+void Client::recieveStartData(const void* data, int length) {
+    if (length < sizeof(GameStartMessage)) {
+        std::cerr << "Received data too small for GameStartMessage" << std::endl;
+        return;
+    }
+
+    const GameStartMessage* msg = static_cast<const GameStartMessage*>(data);
+    if (msg->type != 3) { // 假设 3 代表游戏开始消息
+        std::cerr << "Unknown data type received: " << msg->type << std::endl;
+        return;
+    }
+
+    id = msg->id;
+    general_pos = msg->player_general_pos;
+    std::cout << "Received game start message. Client ID: " << id
+        << ", General Position: (" << msg->player_general_pos.x
+        << ", " << msg->player_general_pos.y << ")" << std::endl;
+}
+void Client::recieveMapData(const void* data, int length) {
     if (length < sizeof(MapDataHeader)) {
         std::cerr << "Received data too small for MapDataHeader" << std::endl;
         return;
@@ -112,7 +133,7 @@ void Client::recieveData(const void* data, int length) {
         }
     }
 
-    std::cout << "Map data received. Size: " << header->height << "x" << header->width << std::endl;
+    std::cout << "Map data received." << std::endl;
 }
 
 
@@ -136,6 +157,12 @@ Client::~Client() {
 Map* Client::getMap() {
     return &map;
 }
+std::deque<Movement>* Client::getMovements() {
+    return &movements;
+}
+int Client::getId() {
+    return id;
+}
 int main() {
     Client client;
     Render render;
@@ -150,8 +177,13 @@ int main() {
     }
 
     client.network_thread = std::thread(&Client::handleServerCommunication, &client);
-    render.init(1, client.getMap());
+    while (client.running.load() == false) {
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    }
+    render.init(client.getId(), client.getMap(), client.getMovements());
     render.draw();
+    client.running.store(false);
+    client.closed.store(true);
     client.network_thread.join();
     return 0;
 }

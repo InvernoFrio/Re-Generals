@@ -10,6 +10,8 @@
 #include <vector>
 #include <atomic>
 #include "map.h"
+#include "constants.h"
+#include "message.h"
 
 class Server {
 private:
@@ -38,6 +40,7 @@ private:
     void cleanup_clients();
 
 public:
+    Pos player_general_pos[MAX_PLAYER_NUMBER];
     Server() : server_socket(INVALID_SOCKET) {}
 
     bool initialize();

@@ -1,7 +1,8 @@
 #include "render.h"
 
-void Render::init(int id, Map* map_ptr) {
+void Render::init(int id, Map* map_ptr, std::deque<Movement>* movements_ptr) {
     this->map_ptr = map_ptr;
+    this->movements_ptr = movements_ptr;
     this->id = id;
     initCamera();
     InitWindow(DEFAULT_SCREEN_WIDTH, DEFAULT_SCREEN_HEIGHT, PROJECT_NAME);
@@ -83,12 +84,11 @@ void Render::handleCameraInput() {
     }
 }
 void Render::drawMap() {
-    std::cout << "Drawing map..." << std::endl;
+    // std::cout << "Drawing map..." << std::endl;
     std::lock_guard<std::mutex> lock(mtx);
     Map& data = *map_ptr;
     int height = data.getHeight();
     int width = data.getWidth();
-    std::cout << "Map size: " << height << "x" << width << std::endl;
     for (int i = 0;i < height;i++) {
         for (int j = 0;j < width;j++) {
             Square& now = data.getSquare(i, j);
@@ -142,7 +142,9 @@ void Render::drawMap() {
             //draw arrow
         }
     }
-    // Implement rendering logic here using the data
+}
+void Render::drawUI() {
+    // std::cout << "Drawing UI..." << std::endl;
 }
 Color Render::brightness(Color base_color, float factor) {
     Color tint;
@@ -173,14 +175,15 @@ void Render::drawCentredText(const char* text, Rectangle square, float factor) {
     DrawTextEx(font, text, (Vector2) { posX + offset, posY + offset }, font_size, 0, { 0,0,0,127 });
     DrawTextEx(font, text, (Vector2) { posX, posY }, font_size, 0, WHITE);
 }
-void Render::drawUI() {
-    std::cout << "Drawing UI..." << std::endl;
-}
 void Render::resetCamera() {
     camera.target = (Vector2){ 0,0 };
     camera.zoom = 1.0f;
     updateCameraOffset();
 }
 Render::~Render() {
+    for (auto& pair : textures) {
+        UnloadTexture(pair.second);
+    }
+    UnloadFont(font);
     CloseWindow();
 }

@@ -578,6 +578,7 @@ CMakeFiles/server.dir/src/server.cpp.obj: E:/Projects/re-generals/src/server.cpp
   C:/MinGW/x86_64-w64-mingw32/include/ws2tcpip.h \
   E:/Projects/re-generals/include/constants.h \
   E:/Projects/re-generals/include/map.h \
+  E:/Projects/re-generals/include/message.h \
   E:/Projects/re-generals/include/raylib/raylib.h \
   E:/Projects/re-generals/include/server.h
 
@@ -1101,6 +1102,8 @@ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/popcntintrin.h:
 C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/avx512fp16intrin.h:
 
 C:/MinGW/x86_64-w64-mingw32/include/sys/timeb.h:
+
+E:/Projects/re-generals/include/message.h:
 
 C:/MinGW/x86_64-w64-mingw32/include/wincontypes.h:
 

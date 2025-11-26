@@ -422,4 +422,5 @@ CMakeFiles/client.dir/src/client.cpp.obj: \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/node_handle.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_map.h \
  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_multimap.h \
- C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/erase_if.h
+ C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/erase_if.h \
+ E:/Projects/re-generals/include/message.h

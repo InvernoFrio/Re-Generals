@@ -18,7 +18,8 @@
 #include <thread>
 #include <mutex>
 #include <deque>
-#include"render.h"
+#include "render.h"
+#include "message.h"
 
 class Client {
 private:
@@ -27,24 +28,27 @@ private:
     SOCKET client_socket;
     WSADATA wsa_data;
     Map map;
-    std::atomic<bool> running;
     std::mutex map_lock;
     std::chrono::high_resolution_clock::time_point last_update_time;
+    Pos general_pos;
 
     std::deque<Movement> movements;
 
 public:
+    std::atomic<bool> running;
+    std::atomic<bool> closed;
     std::thread network_thread;
     Client() : client_socket(INVALID_SOCKET) {}
     bool initialize();
 
     bool connect_to_server(const std::string& host, int port);
     void handleServerCommunication();
-    void update();
-    void recieveData(const void* data, int length);
+    void recieveMapData(const void* data, int length);
+    void recieveStartData(const void* data, int length);
 
     Map* getMap();
-    void handleNetwork();
+    std::deque<Movement>* getMovements();
+    int getId();
 
     ~Client();
 };

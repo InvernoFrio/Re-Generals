@@ -12,13 +12,6 @@ struct Square {
     int num;
     int type;
 };
-struct MapDataHeader {
-    int type;
-    int height;
-    int width;
-    size_t datasize;
-    std::chrono::high_resolution_clock::time_point timestamp;
-};
 class Map {
 private:
     Square data[DEFAULT_MAP_HEIGHT][DEFAULT_MAP_WIDTH];

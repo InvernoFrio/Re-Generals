@@ -418,6 +418,7 @@ CMakeFiles/client.dir/src/client.cpp.obj: E:/Projects/re-generals/src/client.cpp
   E:/Projects/re-generals/include/client.h \
   E:/Projects/re-generals/include/constants.h \
   E:/Projects/re-generals/include/map.h \
+  E:/Projects/re-generals/include/message.h \
   E:/Projects/re-generals/include/raylib/raylib.h \
   E:/Projects/re-generals/include/raylib/raymath.h \
   E:/Projects/re-generals/include/render.h
@@ -634,6 +635,7 @@ CMakeFiles/client.dir/src/render.cpp.obj: E:/Projects/re-generals/src/render.cpp
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/cpp_type_traits.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/cxxabi_forced.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/cxxabi_init_exception.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/deque.tcc \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/erase_if.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/exception.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/exception_defines.h \
@@ -674,6 +676,7 @@ CMakeFiles/client.dir/src/render.cpp.obj: E:/Projects/re-generals/src/render.cpp
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_algo.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_algobase.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_construct.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_deque.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_function.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_heap.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_iterator.h \
@@ -684,6 +687,7 @@ CMakeFiles/client.dir/src/render.cpp.obj: E:/Projects/re-generals/src/render.cpp
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_pair.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_tempbuf.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_tree.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/stl_uninitialized.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/streambuf.tcc \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/streambuf_iterator.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/bits/string_view.tcc \
@@ -712,6 +716,7 @@ CMakeFiles/client.dir/src/render.cpp.obj: E:/Projects/re-generals/src/render.cpp
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/cwctype \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/debug/assertions.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/debug/debug.h \
+  C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/deque \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/exception \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/ext/aligned_buffer.h \
   C:/MinGW/lib/gcc/x86_64-w64-mingw32/15.2.0/include/c++/ext/alloc_traits.h \
@@ -1632,6 +1637,8 @@ C:/MinGW/x86_64-w64-mingw32/include/wnnc.h:
 C:/MinGW/x86_64-w64-mingw32/include/threadpoolapiset.h:
 
 C:/MinGW/x86_64-w64-mingw32/include/threadpoollegacyapiset.h:
+
+E:/Projects/re-generals/include/message.h:
 
 C:/MinGW/x86_64-w64-mingw32/include/wincontypes.h:
 

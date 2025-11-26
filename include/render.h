@@ -8,6 +8,7 @@
 #include<atomic>
 #include<algorithm>
 #include<map>
+#include<deque>
 
 
 
@@ -20,13 +21,14 @@ public:
     bool is_dragging;
     Vector2 camera_last_pos;
     Map* map_ptr;
+    std::deque<Movement>* movements_ptr;
     std::mutex mtx;
     std::map<int, Texture2D>textures;
     Font font;
     Pos selected_square{ -1,-1 };
 
 public:
-    void init(int id, Map* map_ptr);
+    void init(int id, Map* map_ptr, std::deque<Movement>* movements_ptr);
     void draw();
     void drawUI();
     void drawMap();

@@ -57,6 +57,9 @@ void Server::run() {
     std::cout << "Starting game loop." << std::endl;
     logic_thread = std::thread(&Server::startGame, this);
     //render loop
+    while (running.load() == false) {//wait for game start
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
     while (running.load()) {
         draw();
     }
@@ -178,7 +181,6 @@ void Server::handleInput(const char* data, int length, int client_id) {
     // 这里可以根据协议解析数据并更新游戏状态
 }
 void Server::cleanup_clients() {
-    // 必须持有 client_threads_mutex
     std::lock_guard<std::mutex> lk(client_threads_mutex);
     for (auto it = clients.begin(); it != clients.end(); ) {
         auto& client = *it;
@@ -247,10 +249,25 @@ void Server::updateGame() {
 }
 
 void Server::startGame() {
-    start_time = std::chrono::high_resolution_clock::now();
     initMap();
-    rounds = 0;
+    for (int i = 0;i < map.getHeight();++i) {
+        for (int j = 0;j < map.getWidth();++j) {
+            Square& now = map.getSquare(i, j);
+            if (now.type == TYPE_GENERAL) {
+                player_general_pos[now.id - 1] = { i,j };
+            }
+        }
+    }
     std::cout << "Game started." << std::endl;
+
+    // Send game start message to all clients
+    for (auto& client : clients) {
+        GameStartMessage msg{ 3,client->id,player_general_pos[client->id - 1] }; // Game start message type
+        send(client->sock, reinterpret_cast<const char*>(&msg), sizeof(msg), 0);
+    }
+    std::cout << "Game start messages sent to all clients." << std::endl;
+    start_time = std::chrono::high_resolution_clock::now();
+    rounds = 0;
     running.store(true);
     while (running.load()) {
         updateGame();
