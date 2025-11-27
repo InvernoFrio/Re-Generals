@@ -1,3 +1,46 @@
+
+# Build directories
+/build/
+/bin/
+
+# CMake generated files
+/CMakeFiles/
+/cmake_install.cmake
+/Makefile
+/compile_commands.json
+
+# Object files, libraries, executables
+*.o
+*.obj
+*.lib
+*.so
+*.exe
+
+# Debug and IDE files
+.vscode/
+.idea/
+*.suo
+*.user
+*.VC.db
+*.pdb
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+
+# Editor swap/backup files
+*~
+*.swp
+*.bak
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Misc
+*.old
+
 /backup
-/include/map.h.bk
-/src/map.cpp.bk
+/bin
+/build
