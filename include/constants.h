@@ -89,4 +89,20 @@ struct Pos {
 
 constexpr Color DEFAULT_PLAYER_COLORS[12] = { (Color) { 250,2,9,255 },(Color) { 68,144,253,255 }, (Color) { 8,128,12 ,255 },(Color) { 26,128,128,255 },(Color) { 245,141,21,255 },(Color) { 238,44,228 ,255 },(Color) { 127,0,127 ,255 },(Color) { 152,1,4 ,255 },(Color) { 176,173,56 ,255 },(Color) { 151,94,39 ,255 },(Color) { 57,40,253 ,255 },(Color) { 93,74,164 ,255 } };
 
+enum State {
+    STATE_WAITING = 0,
+    STATE_RUNNING = 1,
+    STATE_ENDED = 2
+};
+
+enum MessageType {
+    MSG_MAPDATA = 1,
+    MSG_MOVEMENT = 2,
+    MSG_GAMESTART = 3,
+    MSG_MAPINQUIRY = 4,
+    MSG_GAMESTATE = 5,
+    MSG_STATEINQUIRY = 6,
+    MSG_GAMEEND = 7
+};
+
 #endif

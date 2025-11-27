@@ -25,7 +25,7 @@ private:
         int id;
     };
 
-    std::atomic<bool> running;
+    std::atomic<int> state{ 0 }; // 0: waiting, 1: running, 2: ended
 
     std::vector<std::shared_ptr<ClientInfo>> clients;
     std::mutex client_threads_mutex;
@@ -50,11 +50,20 @@ public:
     void acceptClientConnections();
     void handle_client(SOCKET client_socket, sockaddr_in client_addr, int client_id);
 
-    void handleInput(const char* data, int length, int client_id);
+    void sendGameStateEnded(SOCKET  client_socket, int client_id);
+
+    void sendGameStartMessage(int client_id, SOCKET client_socket, int& retFlag);
+
+    void sendMapData(int client_id, SOCKET client_socket);
+
+    void sendGameStateWaiting(SOCKET client_socket, int& retFlag, int client_id);
+
+    void handleInput(const char* data, int length, int client_id, int& type);
 
     void draw();
 
     void startGame();
+    void getGeneralPos();
     void initMap();
     void updateGame();
     void* prepareMapdata(int& total_size);

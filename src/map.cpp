@@ -39,6 +39,7 @@ void Map::init(int player_number, int mountain_number, int city_number) {
             x = dis_height(gen);
             y = dis_width(gen);
         } while (data[x][y].type != TYPE_LAND); // 确保该位置是陆地
+        data[x][y].num = 40 + (gen() % 11); // 初始士兵数介于40到50之间
         data[x][y].type = TYPE_CITY;// 城市
         data[x][y].color = DEFAULT_COLOR_CITY;
     }

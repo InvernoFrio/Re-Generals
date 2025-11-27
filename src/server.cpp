@@ -13,7 +13,7 @@ bool Server::initialize() {
         std::cerr << "WSAStartup failed: " << WSAGetLastError() << std::endl;
         return false;
     }
-    running.store(false);
+    state.store(STATE_WAITING);
     return true;
 }
 bool Server::start(int port) {
@@ -57,10 +57,10 @@ void Server::run() {
     std::cout << "Starting game loop." << std::endl;
     logic_thread = std::thread(&Server::startGame, this);
     //render loop
-    while (running.load() == false) {//wait for game start
+    while (state.load() == STATE_WAITING) {//wait for game start
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }
-    while (running.load()) {
+    while (state.load() == STATE_RUNNING) {
         draw();
     }
     if (logic_thread.joinable()) {
@@ -99,13 +99,13 @@ void Server::acceptClientConnections() {
         }
 
         //人数够则开始游戏
-        if (running.load() == false && clients.size() == DEFAULT_PLAYER_NUMBER) {
+        if (state.load() == STATE_WAITING && clients.size() == DEFAULT_PLAYER_NUMBER) {
             return;
         }
     }
 }
 void Server::draw() {
-    while (running.load()) {
+    while (state.load() == STATE_RUNNING) {
         // 在这里实现绘图逻辑
         // 例如，发送当前游戏状态给所有客户端
         std::this_thread::sleep_for(std::chrono::milliseconds(1000));
@@ -120,28 +120,30 @@ void Server::handle_client(SOCKET client_socket, sockaddr_in client_addr, int cl
         // 简单的回显服务
         char receiveDataBuffer[1024];
         int bytes_received;
-
-
-        // 阻塞直到服务器开始运行（running == true）
-        while (!running.load(std::memory_order_acquire)) {
-            std::this_thread::sleep_for(std::chrono::milliseconds(16));
-        }
-
-        while (running.load() && (bytes_received = recv(client_socket, receiveDataBuffer, sizeof(receiveDataBuffer), 0)) >= 0) {
-            if (bytes_received == SOCKET_ERROR) {
-                int err = WSAGetLastError();
-                std::cerr << "Recv failed: " << err << std::endl;
+        //通信
+        while ((bytes_received = recv(client_socket, receiveDataBuffer, sizeof(receiveDataBuffer), 0)) >= 0) {
+            int type = 0;
+            handleInput(receiveDataBuffer, bytes_received, client_id, type);
+            if (state.load() == STATE_WAITING && type == MSG_STATEINQUIRY) {
+                int retFlag;
+                sendGameStateWaiting(client_socket, retFlag, client_id);
+                if (retFlag == 2) break;
+            }
+            else if (state.load() == STATE_RUNNING) {
+                if (type == MSG_MAPINQUIRY) {
+                    sendMapData(client_id, client_socket);
+                }
+                if (type == MSG_STATEINQUIRY) {
+                    int retFlag;
+                    sendGameStartMessage(client_id, client_socket, retFlag);
+                    if (retFlag == 2) break;
+                }
+            }
+            else if (state.load() == STATE_ENDED) {
+                sendGameStateEnded(client_socket, client_id);
                 break;
             }
-            if (bytes_received == 0) break;
-            handleInput(receiveDataBuffer, bytes_received, client_id);
-
-            int bytes_sent = 0;
-            void* sendbuffer = prepareMapdata(bytes_sent);
-            send(client_socket, static_cast<char*>(sendbuffer), bytes_sent, 0);
-            delete[] static_cast<char*>(sendbuffer);
         }
-
         clients[client_id - 1]->alive.store(false);
         std::cout << "Client disconnected: " << client_ip << std::endl;
         closesocket(client_socket);
@@ -156,6 +158,45 @@ void Server::handle_client(SOCKET client_socket, sockaddr_in client_addr, int cl
         try { closesocket(client_socket); }
         catch (...) {}
     }
+}
+void Server::sendGameStateEnded(SOCKET client_socket, int client_id) {
+    GameStateMessage state_msg;
+    state_msg.type = MSG_GAMESTATE;
+    state_msg.state = STATE_ENDED;
+    if (send(client_socket, reinterpret_cast<const char*>(&state_msg), sizeof(state_msg), 0) == SOCKET_ERROR) {
+        std::cerr << "Send failed: " << WSAGetLastError() << std::endl;
+    }
+    std::cout << "Sent game end message to client " << client_id << std::endl;
+}
+void Server::sendGameStartMessage(int client_id, SOCKET client_socket, int& retFlag) {
+    retFlag = 1;
+    GameStartMessage start_msg;
+    start_msg.type = MSG_GAMESTART;
+    start_msg.id = client_id;
+    start_msg.player_general_pos = player_general_pos[client_id - 1];
+    if (send(client_socket, reinterpret_cast<const char*>(&start_msg), sizeof(start_msg), 0) == SOCKET_ERROR) {
+        std::cerr << "Send failed: " << WSAGetLastError() << std::endl;
+        { retFlag = 2; return; };
+    }
+    std::cout << "Sent game start message to client " << client_id << std::endl;
+}
+void Server::sendMapData(int client_id, SOCKET client_socket) {
+    int bytes_sent = 0;
+    void* sendbuffer = prepareMapdata(bytes_sent);
+    send(client_socket, static_cast<char*>(sendbuffer), bytes_sent, 0);
+    delete[] static_cast<char*>(sendbuffer);
+    std::cout << "Sent map data to client " << client_id << std::endl;
+}
+void Server::sendGameStateWaiting(SOCKET client_socket, int& retFlag, int client_id) {
+    retFlag = 1;
+    GameStateMessage state_msg;
+    state_msg.type = MSG_GAMESTATE;
+    state_msg.state = STATE_WAITING;
+    if (send(client_socket, reinterpret_cast<const char*>(&state_msg), sizeof(state_msg), 0) == SOCKET_ERROR) {
+        std::cerr << "Send failed: " << WSAGetLastError() << std::endl;
+        { retFlag = 2; return; };
+    }
+    std::cout << "Sent game state waiting message to client " << client_id << std::endl;
 }
 void* Server::prepareMapdata(int& total_size) {
     total_size = sizeof(MapDataHeader) + map.getHeight() * map.getWidth() * sizeof(Square);
@@ -172,13 +213,24 @@ void* Server::prepareMapdata(int& total_size) {
 
     return buffer;
 }
-void Server::handleInput(const char* data, int length, int client_id) {
+void Server::handleInput(const char* data, int length, int client_id, int& type) {
     // 处理客户端输入的数据
+    type = 0;
+    if (length >= static_cast<int>(sizeof(int)))type = *reinterpret_cast<const int*>(data);
     ClientInfo& client = *clients[client_id - 1];
-    std::string input(data, length);
-    std::cout << "Handling input from client " << client_id << ": " << input << std::endl;
-    // send(client.sock, data, length, 0);
-    // 这里可以根据协议解析数据并更新游戏状态
+    switch (type)
+    {
+    case MSG_MOVEMENT:
+        //TODO:处理移动消息
+        break;
+
+    case MSG_MAPINQUIRY://地图查询消息
+        std::cout << "Received map inquiry from client " << client_id << std::endl;
+        break;
+    case MSG_STATEINQUIRY:
+        std::cout << "Received state inquiry from client " << client_id << std::endl;
+        break;
+    }
 }
 void Server::cleanup_clients() {
     std::lock_guard<std::mutex> lk(client_threads_mutex);
@@ -250,6 +302,19 @@ void Server::updateGame() {
 
 void Server::startGame() {
     initMap();
+    getGeneralPos();
+    std::cout << "Game started." << std::endl;
+    start_time = std::chrono::high_resolution_clock::now();
+    rounds = 0;
+    state.store(STATE_RUNNING);
+    while (state.load() == STATE_RUNNING && clients.size() > 0) {
+        updateGame();
+        cleanup_clients();
+        std::this_thread::sleep_until(start_time + std::chrono::milliseconds(1000 / speed * (++rounds)));
+    }
+    state.store(STATE_ENDED);
+}
+void Server::getGeneralPos() {
     for (int i = 0;i < map.getHeight();++i) {
         for (int j = 0;j < map.getWidth();++j) {
             Square& now = map.getSquare(i, j);
@@ -258,27 +323,6 @@ void Server::startGame() {
             }
         }
     }
-    std::cout << "Game started." << std::endl;
-
-    // Send game start message to all clients
-    for (auto& client : clients) {
-        GameStartMessage msg{ 3,client->id,player_general_pos[client->id - 1] }; // Game start message type
-        send(client->sock, reinterpret_cast<const char*>(&msg), sizeof(msg), 0);
-    }
-    std::cout << "Game start messages sent to all clients." << std::endl;
-    start_time = std::chrono::high_resolution_clock::now();
-    rounds = 0;
-    running.store(true);
-    while (running.load()) {
-        updateGame();
-        if (clients.size() == 0) {
-            running.store(false);
-            break;
-        }
-        cleanup_clients();
-        std::this_thread::sleep_until(start_time + std::chrono::milliseconds(1000 / speed * (++rounds)));
-    }
-    running.store(false);
 }
 void Server::initMap() {
     map.setHeight(DEFAULT_MAP_HEIGHT);
@@ -309,7 +353,7 @@ void Server::clear() {
 }
 Server::~Server() {
     // signal stop and shutdown server socket to unblock accept/recv
-    running.store(false);
+    state.store(STATE_ENDED);
     if (server_socket != INVALID_SOCKET) {
         shutdown(server_socket, SD_BOTH);
         closesocket(server_socket);

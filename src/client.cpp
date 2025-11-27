@@ -1,8 +1,7 @@
 #include "client.h"
 
 bool  Client::initialize() {
-    running.store(false);
-    closed.store(false);
+    state.store(STATE_WAITING);
     return WSAStartup(MAKEWORD(2, 2), &wsa_data) == 0;
 }
 
@@ -43,45 +42,88 @@ bool Client::connect_to_server(const std::string& host, int port) {
 }
 
 void Client::handleServerCommunication() {
-    std::string input = "Require map data";
     char buffer[10240];
+
     while (true) {
-        if (closed.load())break;
         // 发送请求
-        if (running.load() && send(client_socket, input.c_str(), input.length(), 0) == SOCKET_ERROR) {
-            std::cerr << "Send failed: " << WSAGetLastError() << std::endl;
-            break;
+        if (state.load() == STATE_ENDED) break;
+        else if (state.load() == STATE_RUNNING) {
+            std::cout << "Requesting map data from server." << std::endl;
+            int retFlag;
+            inqueryMapdata(retFlag);
+            if (retFlag == 2) break;
+        }
+        else {
+            std::cout << "Inquiring game state from server." << std::endl;
+            bool retFlag;
+            inqueyGameState(retFlag);
+            if (retFlag) break;
         }
 
         int bytes_received = recv(client_socket, buffer, sizeof(buffer) - 1, 0);
-        if (bytes_received > 0) {
-            int type = 0;
-            if (bytes_received >= static_cast<int>(sizeof(int)))type = *reinterpret_cast<const int*>(buffer);
-            if (running.load() == false) {
-                if (type == 3) {
-                    running.store(true);
-                    recieveStartData(static_cast<const void*>(&buffer), bytes_received);
-                }
-                else {
-                    std::cout << "Waiting for game start message..." << std::endl;
-                    std::this_thread::sleep_for(std::chrono::milliseconds(100));
-                    return;
-                }
-            }
-            else {
-                if (type == 1)recieveMapData(static_cast<const void*>(&buffer), bytes_received);
-            }
+
+        int type = 0;
+        int retFlag;
+        receiveType(bytes_received, type, buffer, retFlag);
+        if (retFlag == 2) break;
+
+        if (type == MSG_MAPDATA) {
+            recieveMapData(static_cast<const void*>(&buffer), bytes_received);
         }
-        else if (bytes_received == 0) {
-            std::cout << "Server closed connection" << std::endl;
-            break;
+        else if (type == MSG_GAMESTART) {
+            state.store(STATE_RUNNING);
+            recieveStartData(static_cast<const void*>(buffer), bytes_received);
+
+            int retFlag;
+            inqueryMapdata(retFlag);
+            if (retFlag == 2) break;
+            recieveMapData(static_cast<const void*>(&buffer), bytes_received);
         }
-        else {
-            std::cerr << "Recv failed: " << WSAGetLastError() << std::endl;
-            break;
+        else if (type == MSG_GAMESTATE) {
+            receiveStateMessage(buffer);
         }
-        std::this_thread::sleep_until(last_update_time + std::chrono::milliseconds(1000 / speed));
+        std::this_thread::sleep_for(std::chrono::milliseconds(1000 / speed));
     }
+}
+void Client::receiveStateMessage(char* buffer) {
+    GameStateMessage* state_msg = reinterpret_cast<GameStateMessage*>(buffer);
+    if (state_msg->state == STATE_ENDED) {
+        std::cout << "Game ended by server." << std::endl;
+        state.store(STATE_ENDED);
+    }
+}
+void Client::receiveType(int bytes_received, int& type, char* buffer, int& retFlag) {
+    retFlag = 1;
+    if (bytes_received > 0) {
+        if (bytes_received >= static_cast<int>(sizeof(int)))type = *reinterpret_cast<const int*>(buffer);
+    }
+    else if (bytes_received == 0) {
+        std::cout << "Server closed connection" << std::endl;
+        { retFlag = 2; return; };
+    }
+    else {
+        std::cerr << "Recv failed: " << WSAGetLastError() << std::endl;
+        { retFlag = 2; return; };
+    }
+}
+void Client::inqueryMapdata(int& retFlag) {
+    retFlag = 1;
+    MapInquiryMessage inquiry_msg;
+    inquiry_msg.type = MSG_MAPINQUIRY;
+    if (send(client_socket, reinterpret_cast<const char*>(&inquiry_msg), sizeof(inquiry_msg), 0) == SOCKET_ERROR) {
+        std::cerr << "Send failed: " << WSAGetLastError() << std::endl;
+        { retFlag = 2; return; };
+    }
+}
+void Client::inqueyGameState(bool& retFlag) {
+    retFlag = true;
+    GameStateInquiryMessage inquiry_msg;
+    inquiry_msg.type = MSG_STATEINQUIRY; // 假设 6 代表游戏状态查询消息
+    if (send(client_socket, reinterpret_cast<const char*>(&inquiry_msg), sizeof(inquiry_msg), 0) == SOCKET_ERROR) {
+        std::cerr << "Send failed: " << WSAGetLastError() << std::endl;
+        return;
+    }
+    retFlag = false;
 }
 void Client::recieveStartData(const void* data, int length) {
     if (length < sizeof(GameStartMessage)) {
@@ -123,6 +165,7 @@ void Client::recieveMapData(const void* data, int length) {
 
     map.setHeight(header->height);
     map.setWidth(header->width);
+    last_update_time = header->timestamp;
     const Square* squares = reinterpret_cast<const Square*>(
         static_cast<const char*>(data) + sizeof(MapDataHeader));
 
@@ -177,13 +220,13 @@ int main() {
     }
 
     client.network_thread = std::thread(&Client::handleServerCommunication, &client);
-    while (client.running.load() == false) {
+    while (client.state.load() == STATE_WAITING) {
+        std::cout << "Starting render loop." << std::endl;
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
     render.init(client.getId(), client.getMap(), client.getMovements());
     render.draw();
-    client.running.store(false);
-    client.closed.store(true);
+    client.state.store(STATE_ENDED);
     client.network_thread.join();
     return 0;
 }

@@ -35,14 +35,17 @@ private:
     std::deque<Movement> movements;
 
 public:
-    std::atomic<bool> running;
-    std::atomic<bool> closed;
+    std::atomic<int> state;
     std::thread network_thread;
     Client() : client_socket(INVALID_SOCKET) {}
     bool initialize();
 
     bool connect_to_server(const std::string& host, int port);
     void handleServerCommunication();
+    void receiveStateMessage(char* buffer);
+    void receiveType(int bytes_received, int& type, char* buffer, int& retFlag);
+    void inqueryMapdata(int& retFlag);
+    void inqueyGameState(bool& retFlag);
     void recieveMapData(const void* data, int length);
     void recieveStartData(const void* data, int length);
 
