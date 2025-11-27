@@ -1,3 +1,0 @@
-C:\CMake\bin\cmake.exe -E rm -f CMakeFiles\client.dir/objects.a
-C:\MinGW\bin\ar.exe qc CMakeFiles\client.dir/objects.a @CMakeFiles\client.dir\objects1.rsp
-C:\MinGW\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\client.dir/objects.a -Wl,--no-whole-archive -o E:\Projects\re-generals\bin\client.exe -Wl,--out-implib,libclient.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\client.dir\linkLibs.rsp
